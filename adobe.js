@@ -39,7 +39,7 @@ const fs = require("fs");
         const pdfServices = new PDFServices({credentials});
 
         // Creates an asset(s) from source file(s) and upload
-        readStream = fs.createReadStream("resources/ocrInput.pdf");
+        readStream = fs.createReadStream("Trig_Integrals.pdf");
         const inputAsset = await pdfServices.upload({
             readStream,
             mimeType: MimeType.PDF

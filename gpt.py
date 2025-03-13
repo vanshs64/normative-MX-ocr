@@ -11,7 +11,7 @@ import time
 # Load API key from .env file
 load_dotenv()
 OPENAI_SECRET_KEY = os.getenv("OPENAI_SECRET_KEY")
-OPENAI_API_KEY_V = os.getenv("OPENAI_API_KEY_V")
+OPENAI_SECRET_KEY_2 = os.getenv("OPENAI_SECRET_KEY_2")
 
 def pdf_to_images(pdf_path, output_folder="temp_images", dpi=300):
     """Convert PDF pages to images using PyMuPDF and save them as JPEG."""
@@ -35,7 +35,7 @@ def encode_image(image_path):
 
 def openai_extract(image_paths):
     """Send images to OpenAI Vision API for OCR text extraction."""
-    client = OpenAI(api_key=OPENAI_SECRET_KEY)
+    client = OpenAI(api_key=OPENAI_SECRET_KEY_2)
 
     extracted_text = ""
     
