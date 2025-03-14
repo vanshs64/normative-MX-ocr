@@ -12,3 +12,8 @@ requests
 openai
 dotenv
 tqdm
+
+
+# anthropic
+anthropic
+IPython
