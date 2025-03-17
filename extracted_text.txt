@@ -1,0 +1,319 @@
+Here's the extracted text from the image:
+
+```
+§ 8.3 - Trigonometric Integrals
+
+We'll begin by looking at integrals of the form
+
+∫ sin^m x cos^n x dx
+
+where m and n are non-negative integers.
+
+Warm up: ∫ sin^m x cos x dx
+
+Sub u = sin x, du = cos x dx to get ∫ u^m du (Easy!)
+
+What about ∫ sin^m x cos^3 x dx?
+
+Again, sub u = sin x, du = cos x dx to get
+
+∫ u^m cos^2 x · cos x dx = ∫ u^m(1 - sin^2 x) du 
+= ∫ u^m(1 - u^2) du (Easy!)
+```
+
+Here is the extracted text from the image:
+
+---
+
+This strategy will work whenever n is odd! If instead m is odd, we'll set \( u = \cos x \).
+
+**Strategy for Evaluating**  
+\(\int \sin^m x \cos^n x \, dx\)
+
+(i) If \( m \) is odd, let \( u = \cos x \).  
+(ii) If \( n \) is odd, let \( u = \sin x \).  
+(iii) If \( m \) and \( n \) are even, use the identities  
+\(\sin^2 x = \frac{1}{2}(1 - \cos 2x)\),  \(\cos^2 x = \frac{1}{2}(1 + \cos 2x)\).
+
+**Note:** These identities can be derived by rearranging the cosine double angle identities  
+\(\cos 2x = 1 - 2\sin^2 x\) and  \(\cos 2x = 2\cos^2 x - 1\).
+
+**Ex:**  
+(a) \(\int \sin^3 x \cos^8 x \, dx\)
+
+**Solution:**  
+\( m \) odd \(\Rightarrow u = \cos x\),   \(du = -\sin x \, dx\), giving  
+
+--- 
+
+Let me know if you need further assistance!
+
+Here is the extracted text from the image:
+
+\[
+\int \sin^2 x \cdot u^8 \cdot \sin x \, dx = -\int (1 - \cos^2 x) \cdot u^8 \, du
+\]
+\[
+= -\int (1 - u^2) \cdot u^8 \, du
+\]
+\[
+= \int (u^{10} - u^8) \, du
+\]
+\[
+= \frac{u^{11}}{11} - \frac{u^9}{9} + C
+\]
+\[
+= \frac{\cos^2 x}{11} - \frac{\cos^9 x}{9} + C
+\]
+
+(b) 
+\[
+\int \sin^{15} x \cdot \cos^5 x \, dx
+\]
+
+Solution: Both powers are odd, but \(\sin x\) has the bigger power. Let \(u = \sin x\), \(du = \cos x \, dx\), giving
+
+\[
+\int u^{15} \cdot \cos^4 x \cdot \cos x \, dx = \int u^{15} (1 - u^2) \, du
+\]
+
+If instead we used \(u = \cos x\), we'd need to expand \((1 - u^2)^n \ldots\)
+
+Here is the extracted text from the image:
+
+\[
+= \left( u^{15} - 2u^{17} + u^{19} \right) du
+\]
+
+\[
+= \frac{u^{16}}{16} - \frac{2u^{18}}{18} + \frac{u^{20}}{20} + C
+\]
+
+\[
+= \frac{\sin^{16} x - \sin^{18} x + \sin^{20} x}{16} - \frac{1}{9} + \frac{C}{20}
+\]
+
+(c) \(\int \sin^2 x \cos^2 x \, dx\)
+
+**Solution:** Both powers are even, so use the double angle identities.
+
+\[
+\int \sin^2 x \cos^2 x \, dx = \int \frac{1}{2} (1 - \cos 2x) \cdot \frac{1}{2} (1 + \cos 2x) \, dx
+\]
+
+\[
+= \frac{1}{4} \int (1 - \cos^2(2x)) \, dx
+\]
+
+\[
+= \frac{1}{4} \int \left(1 - \frac{1}{2} (1 + \cos 4x)\right) \, dx
+\]
+
+\[
+= \frac{1}{4} \int \left(\frac{1}{2} - \frac{\cos 4x}{2}\right) \, dx
+\]
+
+Sure! Here's the text extracted from the image:
+
+---
+
+\[
+= \frac{1}{8} \int (1 - \cos 4x) \, dx
+\]
+
+\[
+= \frac{1}{8} \left( x - \frac{\sin 4x}{4} \right) + C
+\]
+
+Let’s now look at integrals of the form 
+
+\[
+\int \tan^m x \cdot \sec^n x \, dx
+\]
+
+where again, \( m \) and \( n \) are non-negative integers.
+
+**Strategy for Evaluating** \( \int \tan^m x \cdot \sec^n x \, dx \)
+
+(i) If \( n \) is even, let \( u = \tan x \) and use \( \sec^2 x = \tan^2 x + 1 \).
+
+(ii) If \( m \) is odd, let \( u = \sec x \) and use \( \tan^2 x = \sec^2 x - 1 \).
+
+---
+
+If you need anything else, feel free to ask!
+
+Here is the extracted text from the image:
+
+---
+
+Ex:  
+\[
+\int \tan^3 x \sec^7 x \, dx
+\]
+
+Solution: m is odd, so let \( u = \sec x \). We have \( du = \sec x \tan x \, dx \), hence  
+\[
+\int \tan^3 x \sec^7 x \, dx = \int \tan^2 x \sec^6 x \cdot \sec x \tan x \, dx
+\]
+
+=  
+\[
+\int (\sec^2 x - 1) u^6 \, du
+\]
+
+=  
+\[
+\int (u^2 - 1) u^6 \, du
+\]
+
+=  
+\[
+\int (u^8 - u^6) \, du
+\]
+
+=  
+\[
+\frac{u^9}{9} - \frac{u^7}{7} + C = \frac{\sec^9 x}{9} - \frac{\sec^7 x}{7} + C
+\]
+
+--- 
+
+Ex:  
+\[
+\int \tan^4 x \sec^4 x \, dx
+\]
+
+Solution: n is even, so let \( u = \tan x \), \( du = \sec^2 x \, dx \).  
+We have  
+
+--- 
+
+(Note: The image includes mathematical expressions and formatting that may not display perfectly in plain text.)
+
+Here’s the extracted text from the image:
+
+\[
+\int \tan^4 x \sec^4 x \, dx = \int \tan^4 x \sec^2 x \cdot \sec^2 x \, dx \quad \text{(substitution)} 
+\]
+
+\[
+= \int u^4 (\tan^2 x + 1) \, du 
+\]
+
+\[
+= \int u^4 (u^2 + 1) \, du 
+\]
+
+\[
+= \int (u^6 + u^4) \, du 
+\]
+
+\[
+= \frac{u^7}{7} + \frac{u^5}{5} + C = \tan^7 x \cdot \frac{1}{7} + \tan^5 x \cdot \frac{1}{5} + C 
+\]
+
+---
+
+What about cases like \(\int \tan^2 x \sec x \, dx\)
+
+where \(m\) is even and \(n\) is odd?
+
+---
+
+Step 1: Use \(\tan^2 x = \sec^2 x - 1\) to get only powers of \(\sec x\):
+
+\[
+\int \tan^2 x \sec x \, dx = \int (\sec^2 x - 1) \sec x \, dx = \int (\sec^3 x - \sec x) \, dx 
+\]
+
+Here is the extracted text from the image:
+
+---
+
+**Step 2:** Integrate powers of secx as follows:
+
+\[
+\int sec x \, dx = \ln |sec x + tan x| + C
+\]
+\[
+\int sec^2 x \, dx = tan x + C
+\]
+
+and for integers \( n > 3 \),
+
+\[
+\int sec^n x \, dx = \frac{1}{n-1} sec^{n-2} x \, tan x + \frac{n-2}{n-1} \int sec^{n-2} x \, dx
+\]
+
+(This is called a "reduction formula" for powers of secant. See end of notes for a proof!)
+
+**Example using the Reduction Formula:**
+
+\[
+\int sec^{n=4} x \, dx = \frac{1}{3} sec^2 x \, tan x + \frac{2}{3} \int sec^2 x \, dx
+\]
+\[
+= \frac{1}{3} sec^2 x \, tan x + \frac{2}{3} tan x + C
+\]
+
+Okay, back to our original problem!
+
+---
+
+Here is the extracted text from the image:
+
+```
+Ex: ∫ tan²x secx dx
+
+Solution: 
+∫ tan²x secx dx = ∫ (sec³x - secx) dx
+= ∫ sec³x dx - ∫ secx dx
+= [ 1/2 secx tanx + 1/2 ∫ secx dx ] - ∫ secx dx
+   ↓  Reduction formula!
+= 1/2 secx tanx - 1/2 ∫ secx dx
+= 1/2 secx tanx - 1/2 ln|secx + tanx| + C
+```
+
+Here is the extracted text from the image:
+
+---
+Appendix: Proof of the Reduction Formula
+
+To calculate \(\int sec^n x \, dx\), use IBP with
+
+\[
+\begin{array}{|c|c|}
+\hline
+U = sec^{n-2} x & V = tan x \\
+\hline
+du = (n-2)sec^{n-3} x \, sec x \, tan x \, dx \\
+= (n-2)sec^{n-2} x \, tan x \, dx \\
+\hline
+dv = sec^2 x \, dx \\
+\hline
+\end{array}
+\]
+
+\[
+\int sec^n x \, dx = sec^{n-2} x \, tan x - \int (n-2)sec^{n-2} x \, tan^2 x \, dx
+\]
+
+\[
+= sec^{n-2} x \, tan x - (n-2) \int sec^{n-2} x \, dx
+\]
+
+\[
+= sec^{n-2} x \, tan x - (n-2) \int sec^n x \, dx 
+\]
+
+\(\Rightarrow (n-1) \int sec^n x \, dx = sec^{n-2} x \, tan x + (n-2) \int sec^{n-2} x \, dx\)
+
+\(\div (n-1)\)
+
+\(\Rightarrow \int sec^n x \, dx = \frac{1}{n-1} sec^{n-2} x \, tan x + \frac{n-2}{n-1} \int sec^{n-2} x \, dx\)
+
+“End of Proof”
+
+---
+
