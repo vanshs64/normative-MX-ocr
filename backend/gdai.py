@@ -33,7 +33,7 @@ field_mask = "text,entities,pages.pageNumber"  # Optional. The fields to return 
 # processor_version_id = "YOUR_PROCESSOR_VERSION_ID" # Optional. Processor version to use
 
 load_dotenv()
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "AIzaSyBjqg3X_ZW9f1yp5D7mbEZ7lCHSwaJjvPk"
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = os.getenv("GOOGLE_CREDENTIAL")
 
 def process_document_sample(
     project_id="509669788392",

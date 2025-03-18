@@ -1,0 +1,89 @@
+Prestations dentaires offertes par l'employeur
+dental benefits 45 0
+Cotisations de l'employé au RPC-
+Employee's CPP contributions-see over voir au verso 16 0
+Cotisations de l'employé au RRQ -
+Employee's QPP contributions - see over voir au verso 17 0
+Employer's account number / Numéro de compte de l'employeur
+32104918
+Province of employment Province d'emploi
+10 ON
+Employee's second CPP contributions-see over Deuxièmes cotisations de l'employé au RPC voir au verso
+Employee's second QPP contributions - see over Deuxièmes cotisations de l'employé au RRQ - voir au verso
+Social insurance number Numéro d'assurance sociale
+12 333444555
+CPP/QPP
+28 ☑
+Employment code Code d'emploi
+29 14
+El insurable earnings Gains assurables d'AE
+24 3420
+CPP/QPP pensionable earnings Gains ouvrant droit à pension - RPC/RRQ
+26 690
+Employee's El premiums Cotisations de l'employé à l'AE
+18 0
+Union dues Cotisations syndicales
+44 0
+Initial-Initiale
+V
+Charitable donations Dons de bienfaisance
+46 0
+RPP contributions Cotisations à un RPA
+20 0
+Pension adjustment Facteur d'équivalence
+52 0
+RPP or DPSP registration number N° d'agrément d'un RPA ou d'un RPDB
+50 0
+PPIP insurable earnings Gains assurables du RPAP
+56 0
+- voir au verso
+Employee's PPIP premiums - see over Cotisations de l'employé au RPAP 55 0
+Box - Case
+33
+Amount-Montant
+Box - 10 32
+Amount - Montant
+30
+Amount Montant
+20
+Box Case
+31
+Box - Case
+32
+Box Case
+31
+Employer-offered dental benefits Prestations dentaires offertes par l'employeur
+45
+Employment income Revenus d'emploi
+14
+Income tax deducted Impôt sur le revenu retenu
+22
+Employee's CPP contributions-see over Cotisations de l'employé au RPC-voir au verso
+Province of employment Province d'emploi
+10
+Employee's second CPP contributions-see over Deuxièmes cotisations de l'employé au RPC - voir au verso
+Employee's second QPP contributions - see over Deuxièmes cotisations de l'employé au RRQ - voir au verso
+Employment code Code d'emploi
+29
+El insurable earnings Gains assurables d'AE
+24
+Union dues Cotisations syndicales
+26
+Employee's El premiums Cotisations de l'employé à l'AE
+18
+RPP contributions Cotisations à un RPA
+20
+Charitable donations. Dons de bienfaisance
+46
+Pension adjustment Facteur d'équivalence
+52
+RPP or DPSP registration number N° d'agrément d'un RPA ou d'un RPDB
+50
+Employee's PPIP premiums - Cotisations de l'employé au RPAP -
+see over voir au verso
+PPIP insurable earnings Gains assurables du RPAP
+56
+- voir au verso
+Employee's PPIP premiums - see over Cotisations de l'employé au RPAP 55 56
+Amount - Montant
+Box - Case
