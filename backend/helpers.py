@@ -1,8 +1,7 @@
 import os
-import fitz
+import fitz  # PyMuPDF
 from tqdm import tqdm
 from PIL import Image
-
 import base64
 
 
@@ -28,8 +27,11 @@ def encode_image(image_path):
         return base64.b64encode(img_file.read()).decode("utf-8")
 
 
-def save_text_to_file(output_text, output_file="extracted_text.txt"):
+def save_text_to_file(output_text, output_file):
     """Save extracted text to a file."""
+    if output_file is None:
+        output_file = "extracted_text.txt"
+    
     with open(output_file, "w", encoding="utf-8") as f:
         f.write(output_text)
 
@@ -47,3 +49,4 @@ def cleanup_temp_files(image_paths):
         os.rmdir("temp_images")
     except Exception as e:
         print(f"Error removing temp directory: {e}")
+

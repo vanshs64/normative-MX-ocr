@@ -8,30 +8,12 @@ from dotenv import load_dotenv
 from PIL import Image
 import time
 
+from helpers import pdf_to_images, encode_image, save_text_to_file
+
 # Load API key from .env file
 load_dotenv()
 OPENAI_SECRET_KEY = os.getenv("OPENAI_SECRET_KEY")
 OPENAI_SECRET_KEY_2 = os.getenv("OPENAI_SECRET_KEY_2")
-
-def pdf_to_images(pdf_path, output_folder="temp_images", dpi=300):
-    """Convert PDF pages to images using PyMuPDF and save them as JPEG."""
-    os.makedirs(output_folder, exist_ok=True)
-    doc = fitz.open(pdf_path)
-    image_paths = []
-    
-    for i, page in tqdm(enumerate(doc)):
-        pix = page.get_pixmap(dpi=dpi)
-        img = Image.frombytes("RGB", [pix.width, pix.height], pix.samples)
-        image_path = os.path.join(output_folder, f"page_{i + 1}.jpg")
-        img.save(image_path, "JPEG")
-        image_paths.append(image_path)
-    print("Completed PDF to image conversion.")
-    return image_paths
-
-def encode_image(image_path):
-    """Encode image as Base64."""
-    with open(image_path, "rb") as img_file:
-        return base64.b64encode(img_file.read()).decode("utf-8")
 
 def openai_extract(image_paths):
     """Send images to OpenAI Vision API for OCR text extraction."""
@@ -56,16 +38,11 @@ def openai_extract(image_paths):
     
     return extracted_text
 
-def save_text(output_text, output_file="extracted_text.txt"):
-    """Save extracted text to a file."""
-    with open(output_file, "w", encoding="utf-8") as f:
-        f.write(output_text)
-
 def main():
     pdf_path = "Trig_Integrals.pdf"
     image_paths = pdf_to_images(pdf_path)
     extracted_text = openai_extract(image_paths)
-    save_text(extracted_text)
+    save_text_to_file(extracted_text)
     print(f"OCR completed. Extracted text saved to extracted_text.txt")
 
 if __name__ == "__main__":
