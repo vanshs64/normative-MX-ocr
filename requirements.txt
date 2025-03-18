@@ -1,6 +1,7 @@
 pdf2image
 pillow
 google-cloud-vision
+google
 jsonschema
 
 
@@ -17,3 +18,12 @@ tqdm
 # anthropic
 anthropic
 IPython
+dotenv
+
+
+# google
+typing
+google
+google.api_core.client_options
+google.cloud
+google-cloud-documentai
