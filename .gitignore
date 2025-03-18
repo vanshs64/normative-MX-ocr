@@ -8,3 +8,5 @@ node_modules
 .env
 /.env
 
+google_crediential.json
+/google_crediential.json
