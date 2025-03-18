@@ -66,9 +66,9 @@ def main():
     if not ANTHROPIC_API_KEY:
         print("Error: ANTHROPIC_API_KEY not found in environment variables")
         sys.exit(1)
-
-    pdf_path = "testT4.pdf"  # Hardcoded for now
-
+    #Hardcoded for now
+    pdf_path = "Trig_Integrals.pdf"
+    
     try:
         image_paths = pdf_to_images(pdf_path, "JPEG")
         extracted_text = claude_extract(image_paths)

@@ -1,8 +1,7 @@
 import os
-# import fitz
+import fitz  # PyMuPDF
 from tqdm import tqdm
 from PIL import Image
-
 import base64
 
 
@@ -50,3 +49,4 @@ def cleanup_temp_files(image_paths):
         os.rmdir("temp_images")
     except Exception as e:
         print(f"Error removing temp directory: {e}")
+
