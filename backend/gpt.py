@@ -39,7 +39,7 @@ def openai_extract(image_paths):
     return extracted_text
 
 def main():
-    pdf_path = "Trig_Integrals.pdf"
+    pdf_path = "T4Vansh.pdf"
     image_paths = pdf_to_images(pdf_path)
     extracted_text = openai_extract(image_paths)
     save_text_to_file(extracted_text)

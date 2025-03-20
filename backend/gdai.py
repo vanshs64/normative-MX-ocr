@@ -23,28 +23,30 @@ from helpers import save_text_to_file
 import os
 from dotenv import load_dotenv
 
+
+load_dotenv()
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = os.getenv("GOOGLE_CREDENTIAL_2")
+GOOGLE_APPLICATION_CREDENTIALS = os.getenv("GOOGLE_CREDENTIAL_2")
+
 # TODO(developer): Uncomment these variables before running the sample.
-# project_id = "YOUR_PROJECT_ID"
-# location = "YOUR_PROCESSOR_LOCATION" # Format is "us" or "eu"
-# processor_id = "YOUR_PROCESSOR_ID" # Create processor before running sample
-# file_path = "/path/to/local/pdf"
-# mime_type = "application/pdf" # Refer to https://cloud.google.com/document-ai/docs/file-types for supported file types
+project_id = "509669788392"
+location = "us" # Format is "us" or "eu"
+processor_id = "4da2c852ac4058eb" # Create processor before running sample
+file_path = "T4Vansh.pdf"
+mime_type = "application/pdf" # Refer to https://cloud.google.com/document-ai/docs/file-types for supported file types
 field_mask = "text,entities,pages.pageNumber"  # Optional. The fields to return in the Document object.
 # processor_version_id = "YOUR_PROCESSOR_VERSION_ID" # Optional. Processor version to use
 
-load_dotenv()
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = os.getenv("GOOGLE_CREDENTIAL")
-
 def process_document_sample(
-    project_id="509669788392",
-    location="us",
-    processor_id="4da2c852ac4058eb",
-    file_path="T4Vansh.pdf",  # SET FILE PATH HERE
-    mime_type="application/pdf",
+    project_id=project_id,
+    location=location,
+    processor_id=processor_id,
+    file_path=file_path,
+    mime_type=mime_type,
     processor_version_id: Optional[str] = None,
 ) -> None:
     # You must set the `api_endpoint` if you use a location other than "us".
-    opts = ClientOptions(api_endpoint=f"{location}-documentai.googleapis.com")
+    opts = ClientOptions(api_key=GOOGLE_APPLICATION_CREDENTIALS, api_endpoint=f"{location}-documentai.googleapis.com")
 
     client = documentai.DocumentProcessorServiceClient(client_options=opts)
 
