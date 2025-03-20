@@ -101,7 +101,7 @@ def cleanup_temp_files(image_paths):
 
 
 def main():
-    pdf_path = "Shilo-Jeyarajasingam_coverletter.docx).pdf"  # Change to your actual PDF file
+    pdf_path = "testDoc.pdf"  # Change to your actual PDF file
 
     try:
         image_paths = pdf_to_images(pdf_path)
