@@ -3,7 +3,6 @@
 import { useState, useRef } from "react";
 import { Upload, File, CheckCircle, AlertCircle, X } from "lucide-react";
 import { Button } from "./ui/button";
-import { uploadFiles } from "./lib/actions";
 import { Progress } from "./ui/progress";
 
 export default function DocumentUploader() {
@@ -84,11 +83,34 @@ export default function DocumentUploader() {
         }, 200);
 
         // Upload the file
-        const result = await uploadFiles([file]);
+        const formData = new FormData();
+        formData.append('file', file);
+
+        const response = await fetch('http://localhost:8080/save-file', {
+          method: 'POST',
+          body: formData,
+        });
+
+        const result = await response.json();
 
         clearInterval(progressInterval);
 
-        setFiles((prev) => prev.map((f) => (f.id === fileId ? { ...f, status: "success", progress: 100 } : f)));
+        if (response.ok) {
+          setFiles((prev) => prev.map((f) => (f.id === fileId ? { ...f, status: "success", progress: 100 } : f)));
+        } else {
+          setFiles((prev) =>
+            prev.map((f) =>
+              f.id === fileId
+                ? {
+                    ...f,
+                    status: "error",
+                    progress: 0,
+                    error: result.error || "Failed to upload file. Please try again.",
+                  }
+                : f,
+            ),
+          );
+        }
       } catch (error) {
         setFiles((prev) =>
           prev.map((f) =>
@@ -132,79 +154,49 @@ export default function DocumentUploader() {
         return <CheckCircle className="h-5 w-5 text-green-500" />;
       case "error":
         return <AlertCircle className="h-5 w-5 text-red-500" />;
-      case "uploading":
-        return null;
       default:
-        return null;
+        return <Upload className="h-5 w-5 text-gray-500" />;
     }
   };
 
   return (
-    <div className="space-y-4">
+    <div>
+      <input
+        type="file"
+        ref={fileInputRef}
+        onChange={handleFileInputChange}
+        style={{ display: "none" }}
+      />
       <div
-        className={`border-2 border-dashed rounded-lg p-8 text-center ${
-          isDragging ? "border-blue-500 bg-blue-50" : "border-slate-300 hover:border-blue-400 hover:bg-slate-50"
-        } transition-colors duration-150 ease-in-out`}
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
         onDrop={handleDrop}
+        className={`border-2 border-dashed p-4 ${isDragging ? "border-blue-500" : "border-gray-300"}`}
       >
-        <div className="flex flex-col items-center justify-center space-y-3">
-          <div className="p-3 bg-blue-50 rounded-full">
-            <Upload className="h-8 w-8 text-blue-500" />
-          </div>
-          <h3 className="text-lg font-medium text-slate-800">Drag and drop your files here</h3>
-          <p className="text-sm text-slate-500 max-w-md">
-            Upload your documents in PDF, PNG, or JPG format. Files will be securely stored for your mortgage
-            application.
-          </p>
-          <div className="pt-2">
-            <Button onClick={() => fileInputRef.current?.click()} variant="outline" className="mt-2">
-              Browse Files
-            </Button>
-            <input
-              type="file"
-              ref={fileInputRef}
-              onChange={handleFileInputChange}
-              className="hidden"
-              multiple
-              accept=".pdf,.png,.jpg,.jpeg"
-            />
-          </div>
-        </div>
+        <p>Drag and drop files here, or click to select files</p>
+        <Button onClick={() => fileInputRef.current.click()}>Select Files</Button>
       </div>
-
-      {files.length > 0 && (
-        <div className="mt-6 space-y-3">
-          <h3 className="font-medium text-slate-800">Uploaded Documents</h3>
-          <div className="space-y-3">
-            {files.map((file) => (
-              <div key={file.id} className="flex items-center justify-between p-3 bg-white border rounded-lg">
-                <div className="flex items-center space-x-3">
-                  {getFileIcon(file.type)}
-                  <div>
-                    <p className="text-sm font-medium text-slate-800 truncate max-w-[200px] sm:max-w-xs">{file.name}</p>
-                    <p className="text-xs text-slate-500">{formatFileSize(file.size)}</p>
-                    {file.error && <p className="text-xs text-red-500 mt-1">{file.error}</p>}
-                  </div>
-                </div>
-                <div className="flex items-center space-x-3">
-                  {file.status === "uploading" ? (
-                    <div className="w-24">
-                      <Progress value={file.progress} className="h-2" />
-                    </div>
-                  ) : (
-                    getStatusIcon(file.status)
-                  )}
-                  <button onClick={() => removeFile(file.id)} className="p-1 hover:bg-slate-100 rounded-full">
-                    <X className="h-4 w-4 text-slate-500" />
-                  </button>
-                </div>
+      <div>
+        {files.map((file) => (
+          <div key={file.id} className="flex items-center justify-between p-2 border-b">
+            <div className="flex items-center">
+              {getFileIcon(file.type)}
+              <div className="ml-2">
+                <p className="text-sm font-medium">{file.name}</p>
+                <p className="text-xs text-gray-500">{formatFileSize(file.size)}</p>
               </div>
-            ))}
+            </div>
+            <div className="flex items-center">
+              {getStatusIcon(file.status)}
+              {file.status === "uploading" && <Progress value={file.progress} />}
+              {file.status === "error" && <p className="text-xs text-red-500 ml-2">{file.error}</p>}
+              <Button onClick={() => removeFile(file.id)} className="ml-2">
+                <X className="h-4 w-4" />
+              </Button>
+            </div>
           </div>
-        </div>
-      )}
+        ))}
+      </div>
     </div>
   );
 }

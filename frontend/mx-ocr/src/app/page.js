@@ -1,57 +1,64 @@
+'use client';
+import { useState, useRef } from 'react';
 import DocumentUploader from './components/document-uploader';
 
 export default function Home() {
+  const [isDragging, setIsDragging] = useState(false);
+  const fileInputRef = useRef(null);
+
+  const handleDrag = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+  };
+
+  const handleDragIn = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (e.dataTransfer.items && e.dataTransfer.items.length > 0) {
+      setIsDragging(true);
+    }
+  };
+
+  const handleDragOut = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDragging(false);
+  };
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDragging(false);
+
+    if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+      fileInputRef.current?.handleFiles(e.dataTransfer.files);
+      e.dataTransfer.clearData();
+    }
+  };
+
   return (
-    <main className="min-h-screen bg-slate-50 p-4 md:p-8">
-      <div className="max-w-4xl mx-auto">
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-slate-800">Mortgage Document Portal</h1>
-          <p className="text-slate-600 mt-2">
-            Upload your required documents to complete your mortgage application.
-          </p>
-        </div>
-        
-        <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
-          <h2 className="text-xl font-semibold text-slate-800 mb-4">Document Upload</h2>
-          <p className="text-slate-600 mb-6">
-            Please upload the following documents in PDF, PNG, or JPG format:
-          </p>
-          
-          <div className="space-y-4 mb-6">
-            <div className="flex items-start gap-3">
-              <div className="w-5 h-5 rounded-full bg-blue-100 flex items-center justify-center mt-0.5">
-                <span className="text-blue-600 text-xs font-medium">1</span>
-              </div>
-              <div>
-                <p className="font-medium text-slate-800">Proof of Income</p>
-                <p className="text-sm text-slate-500">Last 3 months of pay stubs or tax returns</p>
-              </div>
-            </div>
-            
-            <div className="flex items-start gap-3">
-              <div className="w-5 h-5 rounded-full bg-blue-100 flex items-center justify-center mt-0.5">
-                <span className="text-blue-600 text-xs font-medium">2</span>
-              </div>
-              <div>
-                <p className="font-medium text-slate-800">Bank Statements</p>
-                <p className="text-sm text-slate-500">Last 3 months of all bank accounts</p>
-              </div>
-            </div>
-            
-            <div className="flex items-start gap-3">
-              <div className="w-5 h-5 rounded-full bg-blue-100 flex items-center justify-center mt-0.5">
-                <span className="text-blue-600 text-xs font-medium">3</span>
-              </div>
-              <div>
-                <p className="font-medium text-slate-800">Identification</p>
-                <p className="text-sm text-slate-500">Government-issued photo ID</p>
-              </div>
-            </div>
+    <div
+      className="min-h-screen relative"
+      onDragEnter={handleDragIn}
+      onDragLeave={handleDragOut}
+      onDragOver={handleDrag}
+      onDrop={handleDrop}
+    >
+      {isDragging && (
+        <div className="absolute inset-0 bg-blue-500/10 border-2 border-dashed border-blue-500 rounded-lg z-50 flex items-center justify-center">
+          <div className="bg-white p-8 rounded-lg shadow-lg">
+            <p className="text-xl text-blue-500 font-semibold">Drop files here</p>
           </div>
-          
-          <DocumentUploader />
         </div>
-      </div>
-    </main>
+      )}
+      
+      <main className="p-8">
+        <h1 className="text-3xl font-bold mb-8">Mortgage Document Portal with OCR</h1>
+        
+        <div className="max-w-2xl mx-auto bg-white p-6 rounded-lg shadow-md">
+          <DocumentUploader ref={fileInputRef} />
+        </div>
+      </main>
+    </div>
   );
 }
