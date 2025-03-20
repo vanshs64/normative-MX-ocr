@@ -1,81 +1,71 @@
-from flask import Flask, request, render_template, jsonify
+from flask import Flask, request, jsonify, send_from_directory
+from flask_cors import CORS
 import os
 from werkzeug.utils import secure_filename
-from claude import extract_images_from_pdf, resize_image, process_image_with_claude_ocr
-from dotenv import load_dotenv
+from vision import pdf_to_images, google_vision_extract, save_text, cleanup_temp_files
 
-load_dotenv()
+app = Flask(__name__, static_folder='../frontend/mx-ocr/out', static_url_path='')
+CORS(app)
 
-app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = os.path.join(os.getcwd(), 'uploads')
-app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16MB max file size
+TEST_DOCS_FOLDER = os.path.join(os.path.dirname(os.getcwd()), 'test_docs')
+ALLOWED_EXTENSIONS = {'pdf', 'png', 'jpg', 'jpeg'}
 
-# Ensure directories exist with absolute paths
-os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
-os.makedirs(os.path.join(os.getcwd(), 'processed_images'), exist_ok=True)
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+os.makedirs(TEST_DOCS_FOLDER, exist_ok=True)
 
 @app.route('/')
-def index():
-    return render_template('index.html')
+def serve_frontend():
+    return send_from_directory(app.static_folder, 'index.html')
 
-@app.route('/process', methods=['POST'])
-def process_document():
-    if 'file' not in request.files:
-        return jsonify({'error': 'No file provided'}), 400
-    
-    file = request.files['file']
-    if file.filename == '':
-        return jsonify({'error': 'No file selected'}), 400
-    
-    if file:
+@app.route('/<path:path>')
+def serve_static(path):
+    return send_from_directory(app.static_folder, path)
+
+@app.route('/save-file', methods=['POST'])
+def save_file():
+    try:
+        if 'file' not in request.files:
+            return jsonify({'error': 'No file provided'}), 400
+        
+        file = request.files['file']
+        
+        if file.filename == '':
+            return jsonify({'error': 'No file selected'}), 400
+        
+        if not allowed_file(file.filename):
+            return jsonify({'error': 'File type not allowed. Please upload PDF, PNG, or JPG files only.'}), 400
+        
+        filename = secure_filename(file.filename)
+        filepath = os.path.join(TEST_DOCS_FOLDER, filename)
+        
+        # Save the file
+        file.save(filepath)
+        
+        if not os.path.exists(filepath):
+            return jsonify({'error': f'Failed to save file to {filepath}'}), 500
+
+        # Process the file with vision.py
         try:
-            # Create directories if they don't exist
-            os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
+            image_paths = pdf_to_images(filepath)
+            extracted_text = google_vision_extract(image_paths)
+            output_file = f"{os.path.splitext(filepath)[0]}_extracted.txt"
+            save_text(extracted_text, output_file)
+            cleanup_temp_files(image_paths)
             
-            filename = secure_filename(file.filename)
-            filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-            
-            # Save the file
-            file.save(filepath)
-            
-            if not os.path.exists(filepath):
-                return jsonify({'error': f'Failed to save file to {filepath}'}), 500
-            
-            output_folder = os.path.join(os.getcwd(), "processed_images")
-            os.makedirs(output_folder, exist_ok=True)
-            
-            api_key = os.getenv("ANTHROPIC_API_KEY")
-            
-            if not api_key:
-                return jsonify({'error': "ANTHROPIC_API_KEY not found in environment variables"}), 500
-            
-            if filepath.lower().endswith('.pdf'):
-                image_paths = extract_images_from_pdf(filepath, output_folder)
-            else:
-                image_paths = [filepath]
-            
-            extracted_data = {}
-            for i, image_path in enumerate(image_paths):
-                resize_height = 3500 if i == 0 else 2000
-                resize_image(image_path, resize_height)
-                extracted_data[f"page_{i+1}"] = process_image_with_claude_ocr(image_path, api_key)
-            
-            # Clean up
-            try:
-                os.remove(filepath)
-                for path in image_paths:
-                    if os.path.exists(path):
-                        os.remove(path)
-            except Exception as e:
-                print(f"Cleanup error: {str(e)}")
-            
-            return jsonify(extracted_data)
+            return jsonify({
+                'message': 'File processed successfully',
+                'filepath': f'test_docs/{filename}',
+                'output_file': f'test_docs/{os.path.basename(output_file)}',
+                'extracted_text': extracted_text
+            })
             
         except Exception as e:
-            return jsonify({'error': str(e)}), 500
+            return jsonify({'error': f'Error processing file: {str(e)}'}), 500
+            
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
-    # Change host and port as needed
-    # host='0.0.0.0' makes it accessible from other devices on the network
-    # You can use any port number above 1024 (e.g., 8080, 3000, etc.)
-    app.run(host='0.0.0.0', port=8080, debug=True)
+    app.run(host='0.0.0.0', port=1000, debug=True)
