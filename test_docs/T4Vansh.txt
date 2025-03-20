@@ -1,89 +1,201 @@
-Prestations dentaires offertes par l'employeur
-dental benefits 45 0
-Cotisations de l'employé au RPC-
-Employee's CPP contributions-see over voir au verso 16 0
-Cotisations de l'employé au RRQ -
-Employee's QPP contributions - see over voir au verso 17 0
-Employer's account number / Numéro de compte de l'employeur
-32104918
-Province of employment Province d'emploi
-10 ON
-Employee's second CPP contributions-see over Deuxièmes cotisations de l'employé au RPC voir au verso
-Employee's second QPP contributions - see over Deuxièmes cotisations de l'employé au RRQ - voir au verso
-Social insurance number Numéro d'assurance sociale
-12 333444555
-CPP/QPP
-28 ☑
-Employment code Code d'emploi
-29 14
-El insurable earnings Gains assurables d'AE
-24 3420
-CPP/QPP pensionable earnings Gains ouvrant droit à pension - RPC/RRQ
-26 690
-Employee's El premiums Cotisations de l'employé à l'AE
-18 0
-Union dues Cotisations syndicales
-44 0
-Initial-Initiale
-V
-Charitable donations Dons de bienfaisance
-46 0
-RPP contributions Cotisations à un RPA
-20 0
-Pension adjustment Facteur d'équivalence
-52 0
-RPP or DPSP registration number N° d'agrément d'un RPA ou d'un RPDB
-50 0
-PPIP insurable earnings Gains assurables du RPAP
-56 0
-- voir au verso
-Employee's PPIP premiums - see over Cotisations de l'employé au RPAP 55 0
-Box - Case
-33
-Amount-Montant
-Box - 10 32
-Amount - Montant
-30
-Amount Montant
-20
-Box Case
-31
-Box - Case
-32
-Box Case
-31
-Employer-offered dental benefits Prestations dentaires offertes par l'employeur
-45
-Employment income Revenus d'emploi
-14
-Income tax deducted Impôt sur le revenu retenu
-22
-Employee's CPP contributions-see over Cotisations de l'employé au RPC-voir au verso
-Province of employment Province d'emploi
-10
-Employee's second CPP contributions-see over Deuxièmes cotisations de l'employé au RPC - voir au verso
-Employee's second QPP contributions - see over Deuxièmes cotisations de l'employé au RRQ - voir au verso
-Employment code Code d'emploi
-29
-El insurable earnings Gains assurables d'AE
-24
-Union dues Cotisations syndicales
-26
-Employee's El premiums Cotisations de l'employé à l'AE
-18
-RPP contributions Cotisations à un RPA
-20
-Charitable donations. Dons de bienfaisance
-46
-Pension adjustment Facteur d'équivalence
-52
-RPP or DPSP registration number N° d'agrément d'un RPA ou d'un RPDB
-50
-Employee's PPIP premiums - Cotisations de l'employé au RPAP -
-see over voir au verso
-PPIP insurable earnings Gains assurables du RPAP
-56
-- voir au verso
-Employee's PPIP premiums - see over Cotisations de l'employé au RPAP 55 56
-Amount - Montant
-Box - Case
+{
+    "Employer's name–Nom de l'employeur": "Normative",
+    "Year Année": "2025"
+    "dental_benefits": {
+        "description": "Prestations dentaires offertes par l'employeur",
+        "value": 45,
+        "amount": 0
+    },
+    "cpp_contributions": {
+        "description": "Cotisations de l'employé au RPC",
+        "note": "Employee's CPP contributions-see over voir au verso",
+        "value": 16,
+        "amount": 0
+    },
+    "qpp_contributions": {
+        "description": "Cotisations de l'employé au RRQ",
+        "note": "Employee's QPP contributions - see over voir au verso",
+        "value": 17,
+        "amount": 0
+    },
+    "employer_account_number": "32104918",
+    "province_of_employment": {
+        "description": "Province of employment Province d'emploi",
+        "value": "10 ON"
+    },
+    "second_cpp_contributions": {
+        "description": "Employee's second CPP contributions-see over Deuxièmes cotisations de l'employé au RPC voir au verso"
+    },
+    "second_qpp_contributions": {
+        "description": "Employee's second QPP contributions - see over Deuxièmes cotisations de l'employé au RRQ - voir au verso"
+    },
+    "social_insurance_number": {
+        "description": "Social insurance number Numéro d'assurance sociale",
+        "value": "12 333444555"
+    },
+    "cpp_qpp": {
+        "description": "CPP/QPP",
+        "value": 28,
+        "checked": true
+    },
+    "employment_code": {
+        "description": "Employment code Code d'emploi",
+        "value": 29,
+        "code": 14
+    },
+    "el_insurable_earnings": {
+        "description": "El insurable earnings Gains assurables d'AE",
+        "value": 24,
+        "amount": 3420
+    },
+    "cpp_qpp_pensionable_earnings": {
+        "description": "CPP/QPP pensionable earnings Gains ouvrant droit à pension - RPC/RRQ",
+        "value": 26,
+        "amount": 690
+    },
+    "employee_el_premiums": {
+        "description": "Employee's El premiums Cotisations de l'employé à l'AE",
+        "value": 18,
+        "amount": 0
+    },
+    "union_dues": {
+        "description": "Union dues Cotisations syndicales",
+        "value": 44,
+        "amount": 0
+    },
+    "initial": {
+        "description": "Initial-Initiale",
+        "value": "V"
+    },
+    "charitable_donations": {
+        "description": "Charitable donations Dons de bienfaisance",
+        "value": 46,
+        "amount": 0
+    },
+    "rpp_contributions": {
+        "description": "RPP contributions Cotisations à un RPA",
+        "value": 20,
+        "amount": 0
+    },
+    "pension_adjustment": {
+        "description": "Pension adjustment Facteur d'équivalence",
+        "value": 52,
+        "amount": 0
+    },
+    "rpp_dpsp_registration_number": {
+        "description": "RPP or DPSP registration number N° d'agrément d'un RPA ou d'un RPDB",
+        "value": 50,
+        "amount": 0
+    },
+    "ppip_insurable_earnings": {
+        "description": "PPIP insurable earnings Gains assurables du RPAP",
+        "value": 56,
+        "amount": 0
+    },
+    "employee_ppip_premiums": {
+        "description": "Employee's PPIP premiums - see over Cotisations de l'employé au RPAP",
+        "value": 55,
+        "amount": 0
+    },
+    "box_case": [
+        {
+            "description": "Box - Case",
+            "value": 33
+        },
+        {
+            "description": "Amount-Montant",
+            "value": 32
+        },
+        {
+            "description": "Box - 10",
+            "value": 30
+        },
+        {
+            "description": "Amount Montant",
+            "value": 20
+        },
+        {
+            "description": "Box Case",
+            "value": 31
+        },
+        {
+            "description": "Box - Case",
+            "value": 32
+        },
+        {
+            "description": "Box Case",
+            "value": 31
+        }
+    ],
+    "employment_income": {
+        "description": "Employment income Revenus d'emploi",
+        "value": 
+    },
+    "income_tax_deducted": {
+        "description": "Income tax deducted Impôt sur le revenu retenu",
+        "value": 22
+    },
+    "employee_cpp_contributions": {
+        "description": "Employee's CPP contributions-see over Cotisations de l'employé au RPC-voir au verso",
+        "value": 10
+    },
+    "province_of_employment_repeated": {
+        "description": "Province of employment Province d'emploi",
+        "value": 10
+    },
+    "second_cpp_contributions_repeated": {
+        "description": "Employee's second CPP contributions-see over Deuxièmes cotisations de l'employé au RPC - voir au verso"
+    },
+    "second_qpp_contributions_repeated": {
+        "description": "Employee's second QPP contributions - see over Deuxièmes cotisations de l'employé au RRQ - voir au verso"
+    },
+    "employment_code_repeated": {
+        "description": "Employment code Code d'emploi",
+        "value": 29
+    },
+    "el_insurable_earnings_repeated": {
+        "description": "El insurable earnings Gains assurables d'AE",
+        "value": 24
+    },
+    "union_dues_repeated": {
+        "description": "Union dues Cotisations syndicales",
+        "value": 26
+    },
+    "employee_el_premiums_repeated": {
+        "description": "Employee's El premiums Cotisations de l'employé à l'AE",
+        "value": 18
+    },
+    "rpp_contributions_repeated": {
+        "description": "RPP contributions Cotisations à un RPA",
+        "value": 20
+    },
+    "charitable_donations_repeated": {
+        "description": "Charitable donations. Dons de bienfaisance",
+        "value": 46
+    },
+    "pension_adjustment_repeated": {
+        "description": "Pension adjustment Facteur d'équivalence",
+        "value": 52
+    },
+    "rpp_dpsp_registration_number_repeated": {
+        "description": "RPP or DPSP registration number N° d'agrément d'un RPA ou d'un RPDB",
+        "value": 50
+    },
+    "employee_ppip_premiums_repeated": {
+        "description": "Employee's PPIP premiums - Cotisations de l'employé au RPAP - see over voir au verso",
+        "value": 55
+    },
+    "ppip_insurable_earnings_repeated": {
+        "description": "PPIP insurable earnings Gains assurables du RPAP",
+        "value": 56
+    },
+    "employee_ppip_premiums_repeated_2": {
+        "description": "Employee's PPIP premiums - see over Cotisations de l'employé au RPAP",
+        "value": 55,
+        "amount": 56
+    },
+    "amount_montant": {
+        "description": "Amount - Montant",
+        "value": "Box - Case"
+    }
+}
