@@ -67,7 +67,7 @@ def main():
         print("Error: ANTHROPIC_API_KEY not found in environment variables")
         sys.exit(1)
     #Hardcoded for now
-    pdf_path = "Trig_Integrals.pdf"
+    pdf_path = "T4Vansh.pdf"
     
     try:
         image_paths = pdf_to_images(pdf_path, "JPEG")

@@ -1,11 +1,7 @@
 import os
-import fitz  # PyMuPDF
-import base64
-import requests
 from tqdm import tqdm
 from openai import OpenAI
 from dotenv import load_dotenv
-from PIL import Image
 import time
 
 from helpers import pdf_to_images, encode_image, save_text_to_file
@@ -13,11 +9,10 @@ from helpers import pdf_to_images, encode_image, save_text_to_file
 # Load API key from .env file
 load_dotenv()
 OPENAI_SECRET_KEY = os.getenv("OPENAI_SECRET_KEY")
-OPENAI_SECRET_KEY_2 = os.getenv("OPENAI_SECRET_KEY_2")
 
 def openai_extract(image_paths):
     """Send images to OpenAI Vision API for OCR text extraction."""
-    client = OpenAI(api_key=OPENAI_SECRET_KEY_2)
+    client = OpenAI(api_key=OPENAI_SECRET_KEY)
 
     extracted_text = ""
     
@@ -40,9 +35,9 @@ def openai_extract(image_paths):
 
 def main():
     pdf_path = "T4Vansh.pdf"
-    image_paths = pdf_to_images(pdf_path)
+    image_paths = pdf_to_images(pdf_path, "JPEG")
     extracted_text = openai_extract(image_paths)
-    save_text_to_file(extracted_text)
+    save_text_to_file(extracted_text, "extracted_text.txt")
     print(f"OCR completed. Extracted text saved to extracted_text.txt")
 
 if __name__ == "__main__":

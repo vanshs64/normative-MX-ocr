@@ -1,0 +1,264 @@
+Employer's name - Nom de l'employeur
+Normative
+Year
+Année
+2025
+Employer-offered
+dental benefits
+Prestations dentaires
+offertes par l'employeur
+14
+45 0
+Employer's account number / Numéro de compte de l'employeur
+54 32104918
+Province of employment
+Province d'emploi
+10 ON
+Social insurance number
+Numéro d'assurance sociale
+Exempt - Exemption
+CPP/QPP EI PPIP
+12 333444555 28 ✓
+Employment code
+Code d'emploi
+RPCRPD AE RPAP 29 14
+Employer's name and address - Nom et adresse de l'employé
+Last name (in capital letters) - Nom de famille (en lettres moulées) First name - Prénom Initial - Initiale
+Shah
+Vansh
+V
+Other information
+(see over)
+Autres
+renseignements
+(voir au verso)
+Box - Case Amount - Montant
+31
+10
+Box - Case Amount - Montant
+Employer's name - Nom de l'employeur
+Year
+Année
+Employer-offered
+dental benefits
+Prestations dentaires
+offertes par l'employeur
+45
+54 Employer's account number / Numéro de compte de l'employeur
+Province of employment
+Province d'emploi
+Social insurance number
+Numéro d'assurance sociale
+Exempt - Exemption
+CPP/QPP EI PPIP
+12 28
+Employment code
+Code d'emploi
+RPCRPD AE RPAP 29
+Employer's name and address - Nom et adresse de l'employé
+Last name (in capital letters) - Nom de famille (en lettres moulées) First name - Prénom Initial - Initiale
+Other information
+(see over)
+Autres
+renseignements
+(voir au verso)
+Box - Case Amount - Montant
+Box - Case Amount - Montant
+Canada Revenue Agence du revenu
+Agency du Canada
+T4
+Statement of Remuneration Paid
+État de la rémunération payée
+Employment income Income tax deducted
+Revenue d'emploi Impôt sur le revenu retenu
+14 3000
+22 1000
+Employer's CPP contributions - see over Employer's QPP contributions - see over
+Cotisations de l'employeur au RPC - voir au verso Cotisations de l'employeur au RRQ - voir au verso
+16 0
+17 0
+Employer's EI premiums Employer's PPIP premiums - see over
+Cotisations de l'employeur à l'AE Cotisations de l'employeur au RPAP - voir au verso
+18A 0
+17A 24
+EI insurable earnings
+PPIP/QPP pensionable earnings
+Gains assurables d'AE Gains ouvrant droit à pension - PPIP/RPQ
+24 3420 26 690
+Employer's EI premiums Union dues
+Cotisations de l'employeur à l'AE Cotisations syndicales
+18 0
+44 0
+RPP contributions
+Cotisations à un RPA Charitable donations
+Dons de bienfaisance
+20 0
+46 0
+Pension adjustment
+Facteur d'équivalence RPP or DPSP registration number
+d'enregistrement d'un RPA ou d'un RPDB
+52 0
+50 0
+Employee's PPIP premiums - see over
+PPIP insurable earnings
+Cotisations de l'employé au RPAP - voir au verso Gains assurables du RPAP
+55 0
+56 0
+Box - Case Amount - Montant
+32 80
+Box - Case Amount - Montant
+Canada Revenue Agence du revenu
+Agency du Canada
+T4
+Statement of Remuneration Paid
+État de la rémunération payée
+Employment income Income tax deducted
+Revenue d'emploi Impôt sur le revenu retenu
+14 22
+Employer's CPP contributions - see over Employer's QPP contributions - see over
+Cotisations de l'employeur au RPC - voir au verso Cotisations de l'employeur au RRQ - voir au verso
+16 17
+Employer's account CPP contributions - see over Employer's account QPP contributions - see over
+Déductions cotisations de l'employé au Déductions cotisations de l'employé au RRQ -
+RPC - voir au verso voir au verso
+16A 17A
+EI insurable earnings
+CPPP/QPP pensionable earnings
+Gains assurables d'AE Gains ouvrant droit à pension - RPIP/RRQ
+24 26
+Employer's EI premiums
+Cotisations de l'employeur à l'AE Union dues
+Cotisations syndicales
+18 44
+RPP contributions
+Cotisations à un RPA Charitable donations
+Dons de bienfaisance
+20 46
+Pension adjustment
+Facteur d'équivalence RPP or DPSP registration number
+d'enregistrement d'un RPA ou d'un RPDB
+52 50
+Employee's PPIP premiums - see over
+PPIP insurable earnings
+Cotisations de l'employé au RPAP - voir au verso Gains assurables du RPAP
+55 56
+Box - Case Amount - Montant
+Box - Case Amount - Montant Box - Case Amount - Montant
+
+14 – Employment Income – Enter on line 10100.
+15 – Employee's CPP contributions – Includes base CPP contributions and
+first additional CPP contributions. Go to canada.ca/line-30800 and
+canada.ca/line-22215.
+16A – Employee's second CPP contributions – Employee's additional
+CPP contributions (CPP2). Go to canada.ca/line-22215.
+17 – Employee's QPP contributions – includes base QPP contributions
+and first additional QPP contributions. Go to canada.ca/line-30800
+and canada.ca/line-22215.
+17A – Employee's second QPP contributions – Employee's second
+additional QPP contributions (QPP2). Go to canada.ca/line-22215.
+18 – Employee's El premiums – Go to canada.ca/line-31200.
+20 – RPP contributions – Includes past service contributions.
+Go to canada.ca/line-20700.
+22 – Income tax deducted – Enter on line 43700.
+39 – Security options deduction 110(1)(d) – Before June 25, 2024 – Enter on line 24900.
+41 – Security options deduction 110(1)(d.1) – Before June 25, 2024 – Enter on line 24900.
+42 – Employment commissions - Enter on line 10120.
+This amount is already included in box 14.
+43 – Canadian Armed Forces personnel and police deduction –
+Go to canada.ca/line-24400. This amount is already included in box 14.
+44 – Union dues – Enter on line 21200.
+45 – Employee-offered dental benefits – Go to canada.ca/t4-information-
+employers.
+46 – Charitable donations.
+52 – Pension adjustment – Enter on line 20600.
+55 – Provincial parental insurance plan (PPIP) – Residents of Quebec, go to
+canada.ca/line-31205. Residents of provinces or territories other than
+Quebec, go to canada.ca/line-31200.
+66 – Eligible retiring allowances – Go to canada.ca/line-13000.
+
+67 – Non-eligible retiring allowances – Go to canada.ca/line-13000
+74 – Past service contributions for 1989 or earlier years while a contributor
+75 – Past service contributions for 1989 or earlier years while not a contributor –
+Go to canada.ca/line-20700.
+77 – Workers' compensation benefits repaid to the employer – Enter on line 22900.
+78 – Fishers – Gross income See Form T2121.
+79 – Fishers – Net partnership amount Do not enter on line 10100.
+80 – Fishers – Shareperson amount
+
+81 – Placement or employment agency workers
+
+Gross income
+
+82 – Taxi drivers and drivers of other See Form T2125.
+passenger-carrying vehicles Do not enter on line 10100.
+83 – Barbers or hairdressers
+85 – Employee-paid premiums for private health services plans – Go to canada.ca/line-33099.
+87 – Emergency services volunteer exempt amount – Go to canada.ca/line-10100.
+91 – Security options deduction 110(1)(d) – On or after June 25, 2024 – Enter on line 24900.
+92 – Security options deduction 110(1)(d.1) – On or after June 25, 2024 – Enter on line 24900.
+The Canada Revenue Agency uses the term Indian because it has legal meaning in the Indian Act.
+69 – Indian Act (exempt income) – Non-eligible retiring allowances
+71 – Indian Act (exempt income) – Employment See Form T90. Do not
+enter these amounts on
+88 – Indian Act (exempt income) – Self-employed line 10100, line 13000 or
+94 – Indian Act (exempt income) – RPP contributions lines 13499 to 14300.
+95 – Indian Act (exempt income) – Union dues
+
+Do not report these amounts on your tax return. For Canada Revenue Agency use only.
+(Amounts in boxes 30, 32, 34, 36, 38, 40, 57, 58, 59, 60, 86 and 90 are already included in box 14.)
+30 – Board and lodging 36 – Interest-free and low-interest loans 59 – Employment Income – July 5 to August 29, 2020
+31 – Special work site 38 – Security options benefits – Before June 25, 2024 60 – Employment Income – August 30 to September 26, 2020
+32 – Travel in a prescribed zone 40 – Other taxable allowances and benefits 86 – Security options election
+33 – Medical travel assistance 57 – Employment Income – March 15 to May 9, 2020 90 – Security option benefits – On or after June 25, 2024
+34 – Personal use of employer's 58 – Employment Income – May 10 to July 4, 2020
+automobile or motor vehicle
+T4 (24) Privacy Act, personal information bank numbers CRA PPU 005 and CRA PPU 047
+
+Veuillez déclarer ces montants dans votre déclaration de revenus. 74 – Services passés pour 1989 et les années précédentes pendant que l'employé cotisait
+14 – Revenus d'emploi – inscrivez à la ligne 10100 75 – Services passés pour 1989 et les années précédentes pendant que l'employé
+15 – Cotisations de l'employé au RPC – Comprend les cotisations de base ne cotisait pas – Allez à canada.ca/ligne-20700
+au RPC et les premières cotisations supplémentaires au RPC. Allez à 77 – Indemnités pour accidents du travail remboursées à l'employeur – inscrivez à
+canada.ca/ligne-30800 et canada.ca/ligne-22215. la ligne 22900.
+16A – Deuxièmes cotisations de l'employé au RPC – Deuxièmes cotisations
+supplémentaires de l'employé au RPC (RPC2). Allez à canada.ca/ligne-22215. 78 – Pêcheurs – Revenus bruts Consultez le formulaire T2121.
+17 – Cotisations de l'employé au RRQ – Comprend les cotisations de base au 79 – Pêcheurs – Montant net d'un associé N'inscrivez pas ce montant à
+RRQ et les premières cotisations supplémentaires au RRQ. Allez à canada.ca/ de la société de personnes la ligne 10100.
+ligne-30800 et canada.ca/ligne-22215. 80 – Pêcheurs – Montant du pêcheur à part
+17A – Deuxièmes cotisations de l'employé au RRQ – Deuxièmes cotisations
+supplémentaires de l'employé au RRQ (RRQ2). Allez à canada.ca/ligne-22215 81 – Travailleurs d'agences ou de
+18 – Cotisations d'assurance-emploi de l'employé – Inscrivez à la ligne 31200. bureaux de placement Revenus bruts
+20 – Cotisations à un RPA – Comprend les cotisations pour services passés. 82 – Chauffeurs de taxi ou d'un autre Consultez le formulaire T2125.
+Allez à canada.ca/ligne-20700. véhicule de transport de passagers N'inscrivez pas ce montant à
+22 – Impôt sur le revenu retenu – Inscrivez à la ligne 43700. 83 – Barbiers et coiffeurs la ligne 10100.
+39 – Déduction pour options d'achat de titres 110(1)(d) – Avant le 25 juin 2024 – Inscrivez à la ligne 24900.
+41 – Déduction pour options d'achat de titres 110(1)(d.1) – Avant le 25 juin 2024 – 85 – Primes versées par l'employé à un régime privé d'assurance-maladie – Allez à canada.ca/ligne-33099.
+Inscrivez à la ligne 24900. 87 – Montant exempt d'impôt versé à un volontaire des services d'urgence – Allez à
+42 – Commissions d'emploi – Inscrivez à la ligne 10120. Ce montant est déjà canada.ca/ligne-10100.
+compris dans la case 14. 91 – Déduction pour options d'achat de titres 110(1)(d) – À partir du 25 juin 2024 –
+43 – Déduction pour le personnel des Forces armées canadiennes et des Inscrivez à la ligne 24900.
+forces policières – Inscrivez à la ligne 24400. Ce montant est déjà compris 92 – Déduction pour options d'achat de titres 110(1)(d.1) – À partir du 25 juin 2024 –
+dans la case 14. Inscrivez à la ligne 24900.
+44 – Cotisations syndicales – Inscrivez à la ligne 21200.
+L'Agence du revenu du Canada utilise le terme Indien en raison de sa signification légale
+45 – Prestations dentaires offertes par l'employeur – Allez à canada.ca/t4-
+dans la Loi sur les Indiens.
+information-employeurs.
+46 – Dons de bienfaisance. 69 – Loi sur les Indiens (revenu d'emploi exonéré) Consultez le formulaire
+52 – Facteur d'équivalence – Inscrivez à la ligne 20600. T90. N'inscrivez pas ces
+55 – Régime provincial d'assurance parentale (RPAP) – Résidents du Québec, montants à la ligne 10100,
+allez à canada.ca/ligne-31205. Résidents des autres provinces ou territoires, 71 – Loi sur les Indiens (revenu d'emploi exonéré) – emploi la ligne 13000 ou les
+allez à canada.ca/ligne-31200. 88 – Loi sur les Indiens (revenu d'emploi exonéré) – travail indépendant lignes 13499 à 14300.
+
+66 – Allocations de retraite admissibles – Allez à canada.ca/ligne-13000. 94 – Loi sur les Indiens (revenu d'emploi exonéré) – cotisations à un RPA
+67 – Allocations de retraite non admissibles – Allez à canada.ca/ligne-13000. 95 – Loi sur les Indiens (revenu d'emploi exonéré) – cotisations syndicales
+
+Ne déclarez pas ces montants à votre déclaration d'impôt. À l'usage de l'Agence du revenu du Canada seulement.
+(Les montants des cases 30, 32, 34, 36, 38, 40, 57, 58, 59, 60, 86 et 90 sont déjà inclus à la case 14.)
+30 – Pension et logement 36 – Prêts sans intérêt ou à faible intérêt 59 – Revenus d'emploi – Du 5 juillet au 29 août 2020
+31 – Chantier particulier 38 – Avantages liés aux options d'achat de titres – 60 – Revenus d'emploi – Du 30 août au 26 septembre 2020
+32 – Voyages dans une zone visée par règlement Avant le 25 juin 2024 86 – Choix liés aux options d'achat de titres
+33 – Aide accordée pour les voyages pour soins médicaux 40 – Autres allocations et avantages imposables 90 – Avantages liés aux options d'achat de titres – À
+34 – Usage personnel de l'automobile ou du véhicule à 57 – Revenus d'emploi – Du 15 mars au 9 mai 2020 partir du 25 juin 2024
+moteur de l'employeur 58 – Revenus d'emploi – Du 10 mai au 4 juillet 2020
+T4 (24) Loi sur la protection des renseignements personnels, fichiers de renseignements personnels ARC PPU 005 et ARC PPU 047
+
