@@ -1,5 +1,5 @@
 import os
-import fitz  # PyMuPDF
+import pymupdf  # PyMuPDF
 from tqdm import tqdm
 from PIL import Image
 import base64
@@ -8,7 +8,7 @@ import base64
 def pdf_to_images(pdf_path, type_extension, output_folder="temp_images", dpi=300):
     """Convert PDF pages to images using PyMuPDF and save them as JPEG."""
     os.makedirs(output_folder, exist_ok=True)
-    doc = fitz.open(pdf_path)
+    doc = pymupdf.open(pdf_path)
     image_paths = []
     
     for i, page in tqdm(enumerate(doc)):
