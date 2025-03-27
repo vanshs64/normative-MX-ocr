@@ -1,0 +1,102 @@
+Here's the extracted text from the image:
+
+```
+Employer's name – Nom de l'employeur
+Canada Revenue Agency
+Agence du revenu du Canada
+
+Year Année: 2025
+
+Employer-offered dental benefits
+Prestations dentaires offertes par l'employeur
+Employment income Revenus d'emploi
+Income tax deducted Impôt sur le revenu retenu
+Employee's account number / Numéro de compte de l'employeur: 321049918
+Province of employment Province d'emploi: ON
+Social insurance number Numéro d'assurance sociale: 333344455
+Exempt – Exemption CPP/QPP E1 PIPP
+Employment code Code d'emploi: 14
+
+Employee's name and address – Nom et adresse de l'employé
+Last name (in capital letters) – Nom de famille (en lettres majuscules): Shah
+First name – Prénom: Vansh
+Initial – Initiale: V
+
+Protected B when completed / Protégé B une fois rempli
+T4
+Statement of Remuneration Paid
+État de la rémunération payée
+
+Box – Case Amount – Montant
+31 — 
+10 — 
+Box – Case Amount – Montant
+Box – Case Amount – Montant
+24 — 
+20 — 
+Pension adjustments Cotisations 
+RPP or DPSP repayment agreement 
+Remboursement de l'accord RPA ou RPD
+
+Employee's CPP contributions – see over Cotisations de l'employé au RPC – voir au verso
+Employee's second CPP contributions – see over Deuxièmes cotisations de l'employé au RPC – voir au verso
+Insurable earnings Gains assurables d'AE
+Employer's EI premiums Cotisations de l'employeur à l'AE
+Union dues Cotisations syndicales
+RPP contributions Cotisations à un RPA
+Employee's RPP pensionable earnings Gains pensionnés de l'employé au RPA
+
+Other information (see over)
+Autres renseignements (voir au verso)
+```
+
+Let me know if you need further assistance!
+
+Sure! Here is the extracted text from the image:
+
+---
+
+Report these amounts on your tax return.
+
+14 – Employee’s CPP contributions – Enter on line 100.
+15 – Employee’s OAS contributions – includes base CPP contributions and first additional CPP contributions. Go to canada.ca/en/ revenue-agency and canad.ca/en/services.
+16A – Employee’s second CPP contributions – Employee’s second additional CPP contributions (CPP2). Go to canada.ca/en/services.  
+16B – Employee’s QPP contributions – includes base CPP contributions and first additional CPP contributions. Go to canada.ca/en/ revenue-agency and canad.ca/en/services.
+17 – Employee’s QPP contributions – Employee’s second additional QPP contributions (QPP2). Go to canada.ca/en/services.
+18 – Employee’s EI premiums – Do not enter on line 10100.
+19 – CPP contributions – Includes past service contributions. Go to canada.ca/en/revenue.
+20 – Income tax deducted – Enter on line 43700.
+21 – Security options deduction 110(1)(d)(1) – Before June 25, 2024 – Enter on line 24900.
+41 – Employment commissions – Enter on line 10120. This amount is already included in box 14.
+43 – Canadian Armed Forces personnel and police deduction – Enter on line 24400. This amount is already included in box 14.
+44 – Union dues – Enter on line 21200.
+45 – Employer-offered dental benefits – Go to canada.ca/en/information-for-employers.
+56 – Charitable donations – Enter on line 20600.
+52 – Provincial parental insurance plan (PPIP) – Residents of Quebec, go to canada.ca/en/services/tax/businesses/provides-services.
+56 – Registered pension plan (RPP) contributions – Go to canada.ca/en/services.
+
+Do not report these amounts on your tax return. For Canada Revenue Agency use only.
+
+67 – Non-eligible retiring allowances – Go to canada.ca/en/ services.
+74 – Past service contributions for 1989 or earlier years while a contributor – Past service contributions for 1989 or earlier years while a contributor – Go to canada.ca/en/services.
+77 – Worker’s compensation benefits repaid to the employer – Enter on line 22900.
+79 – Fishers – Gross income – See form T121.
+79 – Fishers – Net partnership amount – Do not enter on line 10100.
+81 – Placement of employment agency workers
+82 – Taxi drivers and drivers of passenger-carrying vehicles
+83 – Barbers or hairdressers
+87 – Emergency services volunteer expense amount – Go to canada.ca/en-line-10100.
+92 – Security options deduction 110(1)(d)(1) – On or after June 25, 2024 – Enter on line 24900.
+
+The Canada Revenue Agency uses the term Indian because it has legal meaning in the Indian Act.
+
+89 – Indian (exempt income) – Non-eligible retiring allowances.
+90 – Indian (exempt income) – Employment – See form T99. Do not enter the amounts on lines 11000, 13000 or 14900.  
+91 – Indian (exempt income) – Self-employed.
+92 – Indian (exempt income) – RPP contributions.
+93 – Indian (exempt income) – Union dues.
+
+---
+
+Please let me know if you need anything else!
+

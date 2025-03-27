@@ -26,6 +26,7 @@ typing
 google
 google.api_core.client_options
 google.cloud
+<<<<<<< HEAD
 google-cloud-documentai
 
 google-auth
@@ -34,3 +35,6 @@ google-auth-oauthlib
 # cer-wer
 fastwer
 pybind11
+=======
+google-cloud-documentai
+>>>>>>> ba7de84df1b48ee89e31a05dc38103fa7096b2ee
