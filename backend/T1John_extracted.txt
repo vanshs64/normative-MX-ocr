@@ -1,0 +1,23 @@
+
+{
+  "first_name": "John",
+  "last_name": "Doe",
+  "mailing_address": "123 Sigma Street",
+  "PO_Box": "RR",
+  "city": "Toronto",
+  "province": "Ontario",
+  "postal_code": "J0E 1J3",
+  "email_address": "johndoe@gmail.com",
+  "social_insurance_number": "876543210",
+  "date_of_birth": "2006-12-12",
+  "marital_status": "Married",
+  "language_of_correspondence": "English",
+  "spouse_first_name": "Jane",
+  "spouse_sin": "123456789",
+  "spouse_self_employed": true,
+  "net_income_from_line_23600": "",
+  "amount_of_UCCB_from_line_11700": "",
+  "amount_of_UCCB_repayment_from_line_21300": "",
+  "do_not_use_area_1": "17200",
+  "do_not_use_area_2": "17100"
+}

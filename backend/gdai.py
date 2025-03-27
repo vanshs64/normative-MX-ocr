@@ -19,16 +19,22 @@ from typing import Optional
 from google.api_core.client_options import ClientOptions
 from google.cloud import documentai  # type: ignore
 
+from google.auth import default as google_auth_default
+from google.oauth2 import service_account
+
 from helpers import save_text_to_file
 import os
 from dotenv import load_dotenv
 
 
-load_dotenv()
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = os.getenv("GOOGLE_CREDENTIAL_2")
-GOOGLE_APPLICATION_CREDENTIALS = os.getenv("GOOGLE_CREDENTIAL_2")
+load_dotenv()  # This loads variables from .env into os.environ
 
-# TODO(developer): Uncomment these variables before running the sample.
+service_account_key = os.getenv("SERVICE_ACCOUNT_KEY")
+if not service_account_key:
+    raise ValueError("SERVICE_ACCOUNT_KEY not found in environment. Check your .env file.")
+
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = service_account_key
+
 project_id = "509669788392"
 location = "us" # Format is "us" or "eu"
 processor_id = "4da2c852ac4058eb" # Create processor before running sample
@@ -46,9 +52,12 @@ def process_document_sample(
     processor_version_id: Optional[str] = None,
 ) -> None:
     # You must set the `api_endpoint` if you use a location other than "us".
-    opts = ClientOptions(api_key=GOOGLE_APPLICATION_CREDENTIALS, api_endpoint=f"{location}-documentai.googleapis.com")
+    opts = ClientOptions(api_endpoint=f"{location}-documentai.googleapis.com")
 
-    client = documentai.DocumentProcessorServiceClient(client_options=opts)
+    # THE KEY line of code I needed
+    credentials = service_account.Credentials.from_service_account_file(GOOGLE_APPLICATION_CREDENTIALS)
+
+    client = documentai.DocumentProcessorServiceClient(client_options=opts, credentials=credentials)
 
     if processor_version_id:
         # The full resource name of the processor version, e.g.:

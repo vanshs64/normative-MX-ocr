@@ -27,3 +27,10 @@ google
 google.api_core.client_options
 google.cloud
 google-cloud-documentai
+
+google-auth
+google-auth-oauthlib
+
+# cer-wer
+fastwer
+pybind11

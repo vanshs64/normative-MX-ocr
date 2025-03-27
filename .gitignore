@@ -6,7 +6,8 @@ venv
 node_modules
 
 .env
-/.env
 
 google_crediential.json
-/google_crediential.json
+
+backend\mx-ocr-453516-27a3d0d69203.json
+\backend\mx-ocr-453516-27a3d0d69203.json
