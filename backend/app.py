@@ -23,6 +23,22 @@ def serve_frontend():
 def serve_static(path):
     return send_from_directory(app.static_folder, path)
 
+@app.route('/gpt', methods=['POST'])
+def extract_text():
+    try:
+        data = request.get_json()
+        if not data or 'text' not in data:
+            return jsonify({'error': 'No text provided'}), 400
+        
+        text = data['text']
+        
+        # Process the text with Google Vision API (or any other processing)
+        # For now, we just return the text back
+        return jsonify({'extracted_text': text})
+    
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
 @app.route('/save-file', methods=['POST'])
 def save_file():
     try:
