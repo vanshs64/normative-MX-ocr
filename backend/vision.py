@@ -4,8 +4,8 @@ import time
 import sys
 import requests
 import json
-import fitz  # Add this import for PyMuPDF
 from dotenv import load_dotenv
+from pdf2image import convert_from_path
 
 # Load API key from .env file
 load_dotenv()
@@ -21,17 +21,13 @@ def pdf_to_images(pdf_path):
     temp_dir = "temp_images"
     os.makedirs(temp_dir, exist_ok=True)
 
-    pdf_document = fitz.open(pdf_path)
     image_paths = []
 
     print("Converting PDF pages to images...")
-    for page_num in range(pdf_document.page_count):
-        page = pdf_document[page_num]
-        zoom = 2  # Increase DPI
-        mat = fitz.Matrix(zoom, zoom)
-        pix = page.get_pixmap(matrix=mat)
-        image_path = os.path.join(temp_dir, f"page_{page_num + 1}.png")
-        pix.save(image_path)
+    images = convert_from_path(pdf_path, dpi=300, output_folder=temp_dir, fmt="png")
+    for i, image in enumerate(images):
+        image_path = os.path.join(temp_dir, f"page_{i + 1}.png")
+        image.save(image_path, "PNG")
         image_paths.append(image_path)
 
     return image_paths
