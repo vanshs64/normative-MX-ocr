@@ -84,7 +84,7 @@ const Compare = () => {
           </select>
         </div>
         
-        <p>Overall Character Error Rate: {overallCer}</p>
+        <p>Overall Character Error Rate: {(overallCer)}</p>
         {/* Table to display the comparison data */}
         <table className="table-auto border-collapse border border-gray-300 w-full">
           <thead>
@@ -92,6 +92,7 @@ const Compare = () => {
               <th className="border border-gray-300 px-4 py-2">Key</th>
               <th className="border border-gray-300 px-4 py-2">Hypothesis</th>
               <th className="border border-gray-300 px-4 py-2">Reference</th>
+              <th className="border border-gray-300 px-4 py-2">CER</th>
             </tr>
           </thead>
           <tbody>
@@ -107,6 +108,9 @@ const Compare = () => {
                   {typeof row[2] === 'object' 
                     ? JSON.stringify(row[2]) 
                     : row[2] || 'N/A'}
+                </td>
+                <td className="border border-gray-300 px-4 py-2">
+                  {row[3].toFixed(4)}
                 </td>
               </tr>
             ))}

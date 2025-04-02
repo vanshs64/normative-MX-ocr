@@ -98,10 +98,10 @@ def get_hyp_ref():
                     ref_content_dict.get(key, "N/A")
                 ])        
             
-            print( (comparison_table) )
 
         # dictionary where "result" is the table and "cer" is the overall cer
         cer_data = calculate_cer(comparison_table)
+        print( (cer_data["result"]) )
 
         return jsonify({"table_data": cer_data["result"], "overall_cer": cer_data["cer"]})
 
