@@ -1,0 +1,15 @@
+
+{
+    "first_name": "John",
+    "last_name": "Doe",
+    "address": "123 Sigma Street",
+    "city": "Toronto",
+    "email_address": "johndoe@gmail.com",
+    "form_year": 2024,
+    "form_type": "T1",
+    "form_description": "Income Tax and Benefit Return",
+    "social_insurance_number": "876543210",
+    "SIN": "876543210",
+    "net_income": "800500",
+    "total_income": "69420"
+}

@@ -24,6 +24,17 @@ dotenv
 # google
 typing
 google
-google.api_core.client_options
 google.cloud
 google-cloud-documentai
+
+google-auth
+google-auth-oauthlib
+
+# cer-wer
+pybind11
+
+flask
+flask-cors
+werkzeug
+pathlib
+pdf2image
