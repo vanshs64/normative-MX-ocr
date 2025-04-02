@@ -3,6 +3,8 @@ from flask_cors import CORS
 from werkzeug.utils import secure_filename
 from vision import pdf_to_images, google_vision_extract, save_text, cleanup_temp_files
 
+from cer import calculate_cer
+
 import json
 import os
 from pathlib import Path
@@ -75,30 +77,37 @@ def get_scanned_files(hypothesis_path=HYPOTHESIS_PATH, reference_path=REFERENCE_
 @app.route('/get_hyp_ref', methods=['POST'])
 def get_hyp_ref():
     """Get the contents of the hypothesis and reference files for a given file name."""
+    file_name = request.get_json().get('file_name')
+
+    hyp_file_path = Path(HYPOTHESIS_PATH) / file_name
+    ref_file_path = Path(REFERENCE_PATH) / file_name
+
+    comparison_table = []
     try:
-        file_name = request.get_json().get('file_name')
-        if not file_name:
-            return jsonify({'error': 'Missing file_name parameter'}), 400
+        with open(hyp_file_path, "r") as hyp_file, open(ref_file_path, "r") as ref_file:
+            hyp_content = hyp_file.read()
+            hyp_content_dict = json.loads(hyp_content)
 
-        hyp_file_path = Path(HYPOTHESIS_PATH) / file_name
-        ref_file_path = Path(REFERENCE_PATH) / file_name
+            ref_content = ref_file.read()
+            ref_content_dict = json.loads(ref_content)
 
-        # Verify files exist before opening
-        if not hyp_file_path.exists() or not ref_file_path.exists():
-            return jsonify({'error': 'One or both files not found'}), 404
+            for key in ref_content_dict.keys():
+                comparison_table.append([
+                    key, 
+                    hyp_content_dict.get(key, "N/A"), 
+                    ref_content_dict.get(key, "N/A")
+                ])        
+            
+            print( (comparison_table) )
 
-        with open(hyp_file_path, 'r') as hyp_file, open(ref_file_path, 'r') as ref_file:
-            return jsonify({
-                'hyp_content': json.load(hyp_file),
-                'ref_content': json.load(ref_file)
-            })
+        # dictionary where "result" is the table and "cer" is the overall cer
+        cer_data = calculate_cer(comparison_table)
 
-    except json.JSONDecodeError as e:
-        return jsonify({'error': f'Invalid JSON format in files: {str(e)}'}), 400
+        return jsonify({"table_data": cer_data["result"], "overall_cer": cer_data["cer"]})
+
     except Exception as e:
         return jsonify({'error': f'Error processing files: {str(e)}'}), 500
-    
-print(get_scanned_files())
+
 
 @app.route('/save-file', methods=['POST'])
 def save_file():

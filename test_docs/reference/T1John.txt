@@ -1,3 +1,4 @@
+
 {
     "first_name": "John",
     "last_name": "Doe",
@@ -9,6 +10,6 @@
     "form_description": "Income Tax and Benefit Return",
     "social_insurance_number": "876543210",
     "SIN": "876543210",
-    "net_income": "800500"
+    "net_income": "800500",
     "total_income": "69420"
 }

@@ -13,6 +13,7 @@ const Compare = () => {
   
   const [selectedFile, setSelectedFile] = useState(scannedFiles[0] || "");
   const [tableData, setTableData] = useState([]);
+  const [overallCer, setOverallCer] = useState([]);
 
   useEffect(() => {
     const fetchScannedFiles = async () => {
@@ -43,54 +44,24 @@ const Compare = () => {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ file_name: selectedFile }),
         });
-    
-        if (!response.ok) {
-          const error = await response.text();
-          console.error('Server error:', error);
-          return;
-        }
-    
-        const data = await response.json();
-        if (data.error) {
-          console.error('Backend error:', data.error);
+
+        if (response.ok) {
+          // note that data is a dict with 2 keys, result for the table data and cer (overall cer)
+          const data = await response.json();
+          console.log(data.table_data)
+          setTableData(data["table_data"]);
+          setOverallCer(data["overall_cer"]);
         } else {
-          setTableData(data);
+          console.error("Failed to fetch specific file data");
         }
       } catch (error) {
         console.error("Error fetching specific file data:", error);
       }
     };
-    
-    // if the person selected a file thru the dropdown, fetch the comparison data for that name
-    if (selectedFile) {
-      fetchSpecificFile();
-    }
+
+    fetchSpecificFile();
   }, [selectedFile]);
-    
-  // Transform the data into comparable rows
-  const transformData = (data) => {
-    const hypContent = data.hyp_content;
-    const refContent = data.ref_content;
-  
-    // Get all unique keys from both objects
-    const allKeys = new Set([
-      ...Object.keys(hypContent),
-      ...Object.keys(refContent)
-    ]);
-  
-    return Array.from(allKeys).map(key => ({
-      key,
-      hypothesis: hypContent[key] !== undefined ? hypContent[key] : "N/A",
-      reference: refContent[key] !== undefined ? refContent[key] : "N/A"
-    }));
-  };
-  
-  useEffect(() => {
-    if (tableData && Object.keys(tableData).length > 0) {
-      const transformed = transformData(tableData);
-      setTableData(transformed);
-    }
-  }, [tableData]);
+
 
   return (
     <div className="min-h-screen bg-background text-foreground p-8">
@@ -112,7 +83,8 @@ const Compare = () => {
             ))}
           </select>
         </div>
-
+        
+        <p>Overall Character Error Rate: {overallCer}</p>
         {/* Table to display the comparison data */}
         <table className="table-auto border-collapse border border-gray-300 w-full">
           <thead>
@@ -125,13 +97,22 @@ const Compare = () => {
           <tbody>
             {tableData.map((row, index) => (
               <tr key={index}>
-                <td className="border border-gray-300 px-4 py-2">{row.key}</td>
-                <td className="border border-gray-300 px-4 py-2">{row.hypothesis}</td>
-                <td className="border border-gray-300 px-4 py-2">{row.reference}</td>
+                <td className="border border-gray-300 px-4 py-2 font-medium">{row[0]}</td>
+                <td className="border border-gray-300 px-4 py-2">
+                  {typeof row[1] === 'object' 
+                    ? JSON.stringify(row[1]) 
+                    : row[1] || 'N/A'}
+                </td>
+                <td className="border border-gray-300 px-4 py-2">
+                  {typeof row[2] === 'object' 
+                    ? JSON.stringify(row[2]) 
+                    : row[2] || 'N/A'}
+                </td>
               </tr>
             ))}
           </tbody>
         </table>
+
       </div>
     </div>
   );
