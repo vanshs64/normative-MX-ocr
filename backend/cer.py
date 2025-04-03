@@ -83,3 +83,4 @@ def calculate_cer(data):
 #     print(f"{result['key']}: {result['cer'] * 100:.2f}%")
 
 # print(f"\nOverall CER: {cer_results['overall_cer'] * 100:.2f}%")
+
