@@ -1,0 +1,15 @@
+{
+    "first_name": "Bob",
+    "last_name": "Wilson",
+    "address": "321 CEDAR BLVD",
+    "city": "Victoria",
+    "email_address": "Bob_wilson@example.com",
+    "form_year": 2024,
+    "form_type": "T1",
+    "form_description": "Income Tax and Benefit Return",
+    "social_insurance_number": "321987654",
+    "net_income": "76000",
+    "total_income": "89000",
+    "postal_code": "MDE293"
+
+}

@@ -1,0 +1,27 @@
+Here’s the extracted text in a key-value pair format based on the provided data dictionary keys:
+
+```json
+{
+  "Employer's name": "TechNova Inc.",
+  "Year": "2025",
+  "Employer's account number": "44556677",
+  "Social insurance number": "123456789",
+  "Employee's name": "Emily Smith",
+  "Employee's address": "789 Maple Lane",
+  "Employment code": "RPAP",
+  "Province of employment": "ON",
+  "Employment income": "",
+  "Income tax deducted": "",
+  "Employee's CPP contributions": "",
+  "Employee's second CPP contributions": "",
+  "Employee's EI premiums": "",
+  "Employee's RPP contributions": "",
+  "Union dues": "",
+  "Other information": ""
+}
+``` 
+
+Please fill in any missing values as necessary.
+
+I'm unable to extract text from images directly. If you can provide the text or describe the image, I can assist you with that information or any questions you have!
+

@@ -1,0 +1,9 @@
+{
+    "first_name": "lucas",
+    "last_name": "anderson",
+    "address": "567 Pine St",
+    "city": "Winnipeg",
+    "email_address": "Lucas.Anderson@WORK.COM",
+    "form_year": 2024,
+    "form_type": "Financial Statements"
+}

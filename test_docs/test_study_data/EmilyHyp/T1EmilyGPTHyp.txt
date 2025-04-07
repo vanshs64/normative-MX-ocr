@@ -1,0 +1,152 @@
+Here is the extracted data organized in the requested key-value pair format:
+
+```json
+{
+  "First Name": "Emily",
+  "Last Name": "Smith",
+  "Mailing Address": "789 Maple Lane",
+  "City": "Vancouver",
+  "Province/Territory": "BC",
+  "Postal Code": "L5G7B9",
+  "Email Address": "emilysmith@example.com",
+  "Social Insurance Number (SIN)": "",
+  "Date of Birth": "",
+  "Marital Status as of December 31, 2024": "",
+  "Language of Correspondence": "English",
+  "Province or Territory of Residence as of December 31, 2024": "",
+  "Current Province or Territory of Residence": "",
+  "Self-employed Status in 2024": "",
+  "Spouse's First Name": "",
+  "Spouse's SIN": "",
+  "Tick Box for Spouse's Self-Employment in 2024": "",
+  "Net Income from Line 23600": "",
+  "Amount of UCCB from Line 11700": "",
+  "Amount of UCCB Repayment from Line 21300": ""
+}
+``` 
+
+Feel free to fill in the missing details as needed.
+
+Here is the extracted text in a dictionary format based on the specified keys:
+
+```python
+{
+    "Elections_Canada": {
+        "info_link": "canada.ca/cra-elections-canada",
+        "citizenship_question": {
+            "question": "Do you have Canadian citizenship?",
+            "yes": True,
+            "no": False
+        },
+        "authorization_question": {
+            "question": "Do you authorize the CRA to give your name, address, date of birth, and citizenship to Elections Canada?",
+            "yes": True,
+            "no": False
+        }
+    },
+    "Indian_Act_Exempt_income": {
+        "info_link": "canada.ca/taxes-indigenous-peoples",
+        "exempt_income": True
+    },
+    "Canada_Carbon_Rebate": {
+        "reside_outside_CMA": {
+            "info_link": "canada.ca/canada-carbon-rebate",
+            "yes": True
+        }
+    },
+    "Foreign_property": {
+        "property_question": {
+            "question": "Did you own or hold specified foreign property worth more than CAN$100,000?",
+            "value": 26600,
+            "yes": True,
+            "no": False
+        }
+    },
+    "Consent_to_share_contact_information": {
+        "consent_question": {
+            "question": "I authorize the CRA to provide my name and email to Ontario Health.",
+            "yes": True,
+            "no": False
+        },
+        "info_link": "canada.ca/organ-tissue-donation"
+    }
+}
+```
+
+This structure lists each section with relevant questions or information as key-value pairs.
+
+Here is the extracted text formatted into a dictionary with the provided key-value pairs:
+
+```python
+{
+    "Employment income (box 14 of all T4 slips)": "10100",
+    "Tax-exempt income for emergency services volunteers": "10105",
+    "Commissions included on line 10100 (box 42 of all T4 slips)": "10120",
+    "Wage-loss replacement contributions": "10130",
+    "Old age security (OAS) pension (box 18 of the T4A(OAS) slip)": "11300",
+    "CPP or QPP benefits (box 20 of the T4A(P) slip)": "11400",
+    "Disability benefits included on line 11400 (box 16 of the T4A(P) slip)": "11410",
+    "Other pensions and superannuation": "11500",
+    "Elected split-pension amount (complete Form T1032)": "11600",
+    "Universal child care benefit (UCCB) (see the RC62 slip)": "11700",
+    "UCCB amount designated to a dependant": "11701",
+    "Employment insurance (EI) and other benefits (box 14 of the T4E slip)": "11900",
+    "EI maternity and parental benefits, and provincial parental insurance plan (PPIP) benefits": "11905",
+    "Taxable amount of dividends from taxable Canadian corporations (use Federal Worksheet)": "12000",
+    "Amount of dividends (eligible and other than eligible)": "12001",
+    "Interest and other investment income (use Federal Worksheet)": "12100",
+    "Net partnership income (limited or non-active partners only)": "12200",
+    "Registered disability savings plan (RDSP) income (box 131 of the T4A slip)": "12500",
+    "Rental income (see Guide T4036)": "12599",
+    "Taxable capital gains (complete Schedule 3)": "12700",
+    "Capital gains reduction (complete Schedule 3)": "12701",
+    "Support payments received (see Guide P102)": "12799",
+    "Registered retirement savings plan (RRSP) income (from all T4RSP slips)": "12900",
+    "Taxable first home savings account (FHSA) income (see the T4FHSA slip)": "12905",
+    "Taxable FHSA income – other (see the T4FHSA slip)": "12906",
+    "Other income (specify)": "13000",
+    "Taxable scholarships, fellowships, bursaries and artists' project grants": "13010",
+    "Business income (see Guide T4002)": "13500",
+    "Professional income": "13700",
+    "Commission income": "13900",
+    "Farming income": "14100",
+    "Fishing income": "14300",
+    "Workers' compensation benefits (box 10 of the T5007 slip)": "14400",
+    "Social assistance payments": "14500",
+    "Net federal supplements paid (box 21 of the T4A(OAS) slip)": "14600",
+    "Total income": "15000"
+}
+```
+
+Here’s the extracted text organized in a key-value pair format based on the provided dictionary keys:
+
+```json
+{
+    "Pension adjustment": "20600",
+    "Registered pension plan (RPP) deduction": "20700",
+    "RRSP deduction": "20800",
+    "FHSA deduction": "20805",
+    "Pooled registered pension plan (PRPP) employer contributions": "20810",
+    "Deduction for elected spousal pension amount": "21000",
+    "Annual union, professional, or like dues": "21200",
+    "Universal child care benefit (UCCB) repayment": "21300",
+    "Child care expenses": "21400",
+    "Disability supports deduction": "21500",
+    "Business investment loss": "21698",
+    "Gross Period": "21699",
+    "Allowable business investment loss deduction": "21700",
+    "Moving expenses": "21900",
+    "Support payments made": "22000",
+    "Carrying charges, interest expenses and other expenses": "22100",
+    "Deduction for CPP or OPP contributions": "22200",
+    "Exploration and development expenses": "22400",
+    "Other employment expenses": "22900",
+    "Clergy residence deduction": "23100",
+    "Other deductions": "23200",
+    "Add lines 37 to 54": "23300",
+    "Net income before adjustments": "23400",
+    "Line 36 minus line 55": "23500",
+    "Net income": "23600"
+}
+```
+

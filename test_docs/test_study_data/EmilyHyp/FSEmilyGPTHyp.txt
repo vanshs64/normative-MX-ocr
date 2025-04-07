@@ -1,0 +1,205 @@
+Here's the extracted text in a key-value pair dictionary format based on the provided reference keys:
+
+```python
+{
+    "Financial Statements": {
+        "Confidential Document": True,
+        "Form Year": 2024,
+        "Form Type": "Financial Statements"
+    },
+    "Personal Information": {
+        "Account Holder": "Emily Smith",
+        "Mailing Address": "789 Maple Lane, Vancouver",
+        "Contact Information": "emilysmith@example.com",
+        "Account Number": "FS-20240403-7821",
+        "Statement Period": "January 1, 2024 - December 31, 2024",
+        "Date Issued": "April 3, 2025"
+    },
+    "Summary of Accounts": {
+        "Checking Account": {
+            "Account #": "CHK-9275361",
+            "Opening Balance": "$3,254.75",
+            "Closing Balance": "$4,126.83",
+            "Net Change": "+$872.08"
+        },
+        "Savings Account": {
+            "Account #": "SAV-8462193",
+            "Opening Balance": "$12,765.30"
+        }
+    }
+}
+```
+
+Here are the extracted values in the requested dictionary format:
+
+```json
+{
+    "Closing Balance": "$15,942.18",
+    "Net Change": "+$3,176.88",
+    "Investment Portfolio": {
+        "Account #": "INV-5729814",
+        "Opening Balance": "$87,450.22",
+        "Closing Balance": "$96,287.45",
+        "Net Change": "+$8,837.23"
+    },
+    "Transaction History": "Checking Account (CHK-9275361)"
+}
+```
+
+Here is the extracted text formatted into a key-value pair dictionary based on the requested keys:
+
+```python
+{
+    "transactions": [
+        {"Date": "01/15/2024", "Description": "Payroll Deposit", "Amount": "+$2,850.00", "Balance": "$6,104.75"},
+        {"Date": "01/22/2024", "Description": "Mortgage Payment", "Amount": "-$1,675.00", "Balance": "$4,429.75"},
+        {"Date": "02/05/2024", "Description": "Grocery Purchase", "Amount": "-$217.84", "Balance": "$4,211.91"},
+        {"Date": "02/15/2024", "Description": "Payroll Deposit", "Amount": "+$2,850.00", "Balance": "$7,061.91"},
+        {"Date": "02/22/2024", "Description": "Mortgage Payment", "Amount": "-$1,675.00", "Balance": "$5,386.91"},
+        {"Date": "03/08/2024", "Description": "Utility Bill Payment", "Amount": "-$189.65", "Balance": "$5,197.26"},
+        {"Date": "03/15/2024", "Description": "Payroll Deposit", "Amount": "+$2,850.00", "Balance": "$8,047.26"},
+        {"Date": "03/22/2024", "Description": "Mortgage Payment", "Amount": "-$1,675.00", "Balance": "$6,372.26"},
+        {"Date": "04/02/2024", "Description": "Car Insurance", "Amount": "-$425.00", "Balance": "$5,947.26"},
+        {"Date": "04/15/2024", "Description": "Payroll Deposit", "Amount": "+$2,850.00", "Balance": "$8,797.26"},
+        {"Date": "04/22/2024", "Description": "Mortgage Payment", "Amount": "-$1,675.00", "Balance": "$7,122.26"},
+        {"Date": "05/10/2024", "Description": "Home Repairs", "Amount": "-$843.29", "Balance": "$6,278.97"},
+        {"Date": "05/15/2024", "Description": "Payroll Deposit", "Amount": "+$2,850.00", "Balance": "$9,128.97"},
+        {"Date": "05/22/2024", "Description": "Mortgage Payment", "Amount": "-$1,675.00", "Balance": "$7,453.97"},
+        {"Date": "06/08/2024", "Description": "Property Tax", "Amount": "-$1,250.00", "Balance": "$6,203.97"},
+        {"Date": "06/15/2024", "Description": "Payroll Deposit", "Amount": "+$2,850.00", "Balance": "$9,053.97"},
+        {"Date": "06/22/2024", "Description": "Mortgage Payment", "Amount": "-$1,675.00", "Balance": "$7,378.97"},
+        {"Date": "07/07/2024", "Description": "Vacation Expenses", "Amount": "-$2,500.00", "Balance": "$4,878.97"},
+        {"Date": "07/15/2024", "Description": "Payroll Deposit", "Amount": "+$2,850.00", "Balance": "$7,728.97"},
+        {"Date": "07/22/2024", "Description": "Mortgage Payment", "Amount": "-$1,675.00", "Balance": "$6,053.97"}
+    ],
+    "investment_portfolio_summary": {
+        "Primary Account Holder": "Emily Smith",
+        "Mailing Address": "789 Maple Lane, Vancouver",
+        "Email Contact": "emilysmith@example.com",
+        "Asset Allocation": ""
+    }
+}
+```
+
+Let me know if you need further adjustments or additional information!
+
+Here's the extracted information as key-value pairs in a dictionary format:
+
+```plaintext
+{
+    "Equities": "$53,918.98",
+    "Fixed Income": "$23,108.99",
+    "Real Estate": "$9,628.74",
+    "Cash Equivalents": "$9,628.74",
+    "Total": "$96,287.45",
+    "Top Holdings": {
+        "Global Tech Fund": {
+            "Shares": "125.8",
+            "Market Value": "$15,405.99",
+            "% of Portfolio": "16%"
+        },
+        "Diversified Bond ETF": {
+            "Shares": "320.5",
+            "Market Value": "$12,517.37",
+            "% of Portfolio": "13%"
+        },
+        "North American Index Fund": {
+            "Shares": "85.2",
+            "Market Value": "$11,554.49",
+            "% of Portfolio": "12%"
+        },
+        "Healthcare Sector ETF": {
+            "Shares": "74.6",
+            "Market Value": "$8,665.87",
+            "% of Portfolio": "9%"
+        },
+        "Green Energy Fund": {
+            "Shares": "103.4",
+            "Market Value": "$7,702.99",
+            "% of Portfolio": "8%"
+        }
+    },
+    "Account Holder Information": {
+        "Name": "Emily Smith",
+        "Address": "789 Maple Lane, Vancouver",
+        "Email": "emilysmith@example.com"
+    },
+    "401(k) Summary": {
+        "Account #": "401K-4268513",
+        "Year-to-date Contributions": "$10,500.00",
+        "Employer Match": "$5,250.00",
+        "Current Balance": "$142,675.28"
+    }
+}
+```
+
+Here’s the extracted data in the requested dictionary format:
+
+```python
+{
+    "annual_return": "7.8%",
+    "traditional_ira": {
+        "account_number": "IRA-7319582",
+        "year_to_date_contributions": "$3,000.00",
+        "current_balance": "$58,942.17",
+        "annual_return": "6.5%"
+    },
+    "loan_summary": {
+        "primary_borrower": "Emily Smith",
+        "co_borrower": "N/A",
+        "property_address": "789 Maple Lane, Vancouver",
+        "mortgage_information": {
+            "loan_number": "MTG-6284159",
+            "original_amount": "$320,000.00",
+            "current_balance": "$275,842.16",
+            "interest_rate": "4.25%",
+            "monthly_payment": "$1,675.00",
+            "maturity_date": "05/15/2049"
+        },
+        "other_loans": {
+            "auto_loan_number": "AUTO-8273615",
+            "original_amount": "$28,500.00"
+        }
+    }
+}
+```
+
+Here are the extracted key-value pairs from the image:
+
+```json
+{
+  "Current Balance": "$15,287.35",
+  "Interest Rate": "3.9%",
+  "Monthly Payment": "$523.68",
+  "Maturity Date": "09/21/2027",
+  "Taxpayer": "Emily Smith",
+  "Address": "789 Maple Lane, Vancouver",
+  "Email": "emilysmith@example.com",
+  "Total W-2 Income": "$68,400.00",
+  "Interest Income": "$284.75",
+  "Dividend Income": "$1,875.23",
+  "Capital Gains": "$3,527.68",
+  "Other Income": "$1,200.00",
+  "Total Income": "$75,287.66",
+  "Federal Income Tax": "$12,312.00",
+  "State Income Tax": "$4,104.00",
+  "Social Security": "$4,240.80",
+  "Medicare": "$991.80"
+}
+```
+
+Here's the extracted information in the requested dictionary format:
+
+```json
+{
+    "Total Withholding": "$21,648.60",
+    "Name": "Emily Smith",
+    "Address": "789 Maple Lane, Vancouver",
+    "Email": "emilysmith@example.com",
+    "Form Type": "Financial Statements",
+    "Form Year": "2024",
+    "Document ID": "FS-2024-ES-7893214",
+    "Generated": "April 3, 2025"
+}
+```
+

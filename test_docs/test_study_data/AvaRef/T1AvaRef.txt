@@ -1,0 +1,14 @@
+{
+    "first_name": "Ava",
+    "last_name": "Thompson",
+    "address": "123 main st",
+    "city": "edmonton",
+    "email_address": "ava.thompson@example.net",
+    "form_year": 2024,
+    "form_type": "T1",
+    "form_description": "Income Tax and Benefit Return",
+    "social_insurance_number": "123456789",
+    "net_income": "72000",
+    "total_income": "85000",
+    "postal_code": "R8M932"
+}

@@ -1,0 +1,232 @@
+§ 8.3 - Trigonometric Integrals
+
+We'll begin by looking at integrals of the form
+
+∫sin^m x cos^n x dx
+
+where m and n are non-negative integers.
+
+Warm up: ∫sin^m x cosx dx
+
+Sub u = sinx, du = cosx dx to get ∫u^m du
+(Easy!)
+
+What about ∫sin^m x cos^3 x dx?
+
+Again, sub u = sinx, du = cosxdx to get
+
+∫u^m cos^2 x · cosxdx = ∫u^m(1- sin^2 x)du
+
+= ∫u^m(1-u^2)du (Easy!)
+
+This strategy will work whenever n is odd! If
+instead m is odd, we'll set u = cosx.
+
+Strategy for Evaluating ∫sin^mx cos^nx dx
+
+(i) If m is odd, let u = cosx. If both are
+odd, let u be
+the function with
+(ii) If n is odd, let u = sinx. the higher power!
+
+(iii) If m & n are even, use the identities
+
+sin²x = 1/2(1-cos2x) , cos²x = 1/2(1+cos2x).
+
+Note: These identities can be derived by rearranging
+the cosine double angle identities
+cos2x = 1 - 2sin²x and cos2x = 2cos²x -1.
+
+Ex: (a) ∫sin³x⋅cos⁸x dx
+
+Solution: m odd ⇒ u = cosx , dx = - sinx dx , giving
+
+sin x · u * Sinx dx = - (1-cos x) u dx
+=- du
+=- (1-u2)u18 du
+= (u10 - u18) du
+u11 u19
+=
+= 11 c
+cos"x cos x
+11 9
+(6) sin xcos dx
+Solution: Both powers are odd , but Sinx has the
+bigger power. Let u=sinx, du=cos x dx, giving
+Uos Xcos x dx = U(1-uz) du
+=du
+If instead we used u=cosx,= U(1-2uz+u*) du
+we'd need to expand(1-u2)/2. Ew.
+
+∫(u¹⁶-2u¹⁷+u¹⁹) du
+
+= u¹⁶ - 2u¹⁸ + u²⁰ + C
+16   18    20
+
+= Sin¹⁶x - Sin¹⁸x + Sin²⁰x + C
+     16        9      20
+
+(c) ∫ Sin²x cos²x dx
+
+Solution: Both powers are even, so use the double
+          angle identities.
+
+∫Sin²x cos²x dx = ∫ 1/2 (1-cos2x) 1/2 (1+cos2x) dx
+
+= 1/4 ∫ (1 - cos²(2x)) dx
+
+= 1/4 ∫ ( 1- 1/2 (1+cos4x) ) dx
+
+= 1/4 ∫ ( 1/2 - cos4x/2 ) dx
+
+= 1/8 integral (1 - cos4x) dx
+Could do a u-sub
+(u=4x) or note that
+integral cos(nx)dx = sin(nx)/n + C!
+
+= 1/8 (x - sin4x/4) + C
+
+Let's now look at integrals of the form
+
+integral tan^mx sec^nx dx
+
+Where again, m and n are non-negative integers.
+
+Strategy for Evaluating integral tan^mx sec^nx dx
+
+(i) If n is even, let u = tanx
+If n is even
+and use sec²x = tan²x + 1.
+and m is odd,
+let u be the
+function with
+the higher power!
+(ii) If m is odd, let u = secx
+
+and use tan²x = sec²x - 1.
+
+Ex: tan³x sec²x dx
+
+Solution: n is odd, so let u = secx. We have
+du = secxtanxdx, hence
+
+tan³x sec²x dx = tan²x sec⁶x · secxtanx dx
+                  du
+
+= (sec²x-1) u⁶ du
+
+= (u²-1) u⁶ du
+
+= (u⁸ - u⁶) du
+
+= u⁹ - u⁷ + C = sec⁹x - sec⁷x + C
+  9    7         9       7
+
+Ex: tan⁴x sec³x dx
+
+Solution: n is even, so let u = tanx, du = sec²x dx.
+We have
+
+tan⁴x sec⁴x dx = tan⁴x sec²x • sec²x dx
+du
+= u⁴ (tan²x + 1) du
+= u⁴ (u² + 1)du
+= (u⁶ + u⁴) du
+= u⁷ + u⁵ + C = tan⁷x + tan⁵x + C
+7 5 5
+What about cases like tan²x secx dx
+where m is even and n is odd?
+Step 1: Use tan²x = sec²x - 1 to get only powers
+of secx:
+tan²x secx dx = (sec²x - 1) secx dx = (sec³x - secx) dx
+
+Step 2: Integrate powers of secx as follows:
+
+∫secx dx = ∫n|secx*tanx|+ C
+
+∫sec2x dx = tanx + C
+
+and for integers n>3,
+
+∫secnx dx = 1n-1 sec n-2x tanx + n-2n-1∫sec n-2x dx
+
+(This is called a "reduction formula" for powers of secant.
+
+See end of notes for a proof!)
+
+Example using the Reduction Formula:
+
+∫sec4x dx = 1 3 sec2x tanx + 2 3∫sec2 x dx
+
+= 1 3 sec2x tanx * 2 3 tanx + C
+
+Okay, back to our original problem!
+
+Ex:
+∫
+tan²x secx dx
+
+Solution:
+∫
+tan²x secx dx =
+∫
+(sec³x - secx) dx
+
+=
+∫
+sec³x dx -
+∫
+secx dx
+
+=
+[
+1/2 secx tanx + 1/2
+∫
+secx dx
+]
+-
+∫
+secx dx
+
+Reduction formula!
+
+= 1/2 secx tanx - 1/2
+∫
+secx dx
+
+= 1/2 secx tanx - 1/2 ln
+∣
+∣
+∣
+secx + tanx
+∣
+∣
+∣
++ C
+
+Appendix: Proof of the Reduction Formula
+
+To calculate ∫ sec^n x dx, use IBP with
+
+U = sec^n-2 x
+V = tanx
+
+du = (n-2) sec^n-2 x · secx tanx dx
+dv = sec²x dx
+
+= (n-2) sec^n-2 x tanx dx
+
+∫ sec^nx dx = sec^n-2x tanx - ∫ (n-2) sec^n-2x tanx dx
+
+= sec^n-2x tanx - (n-2) ∫ sec^n-2x (sec²x-1) dx
+
+= sec^n-2x tanx - (n-2) ( ∫ sec^nx dx + (n-2) ∫ sec^n-2x dx
+
+This is a multiple of the original integral! Move to LHS!
+
+⇒ (n-1) ∫ sec^nx dx = sec^n-2x tanx + (n-2) ∫ sec^n-2x dx
+
+⇒ (n-1) ∫ sec^nx dx = 1/n-1 sec^n-2x tanx + n-2/n-1 ∫ sec^n-2x dx
+
+"End of Proof"
+

@@ -1,0 +1,15 @@
+{
+    "first_name": "Jon",
+    "last_name": "Tirmandi",
+    "address": "456 oakridge ave",
+    "city": "Vancouver",
+    "email_address": "jon_tirmandi@example.net",
+    "form_year": 2024,
+    "form_type": "T1",
+    "form_description": "Income Tax and Benefit Return",
+    "social_insurance_number": "987654321",
+    "net_income": "88000",
+    "total_income": "101000",
+    "postal_code": "8C3M51"
+
+}
