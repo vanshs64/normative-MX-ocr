@@ -1,0 +1,13 @@
+{
+    "first_name": "Olivia",
+    "last_name": "Taylor",
+    "address": "678 Spruce Road",
+    "city": "Quebec City",
+    "email_address": "olivia.taylor123@example.org",
+    "form_year": 2024,
+    "form_type": "Income Tax and Benefit Return",
+    "form_description": "Income Tax and Benefit Return for the year 2024",
+    "social_insurance_number": "",
+    "net_income": 55000,
+    "total_income": 68000
+}

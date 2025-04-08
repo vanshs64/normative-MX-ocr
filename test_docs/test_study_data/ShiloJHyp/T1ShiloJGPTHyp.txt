@@ -1,0 +1,13 @@
+{
+    "first_name": "Shilo",
+    "last_name": "Jeyarajasingam",
+    "address": "321 pinecrest rd",
+    "city": "Calgary",
+    "email_address": "shilo.j@example.org",
+    "form_year": 2024,
+    "form_type": "T1",
+    "form_description": "Income Tax and Benefit Return",
+    "social_insurance_number": "456789012",
+    "net_income": 106000,
+    "total_income": 120000
+}

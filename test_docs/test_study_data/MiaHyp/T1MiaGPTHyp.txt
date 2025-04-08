@@ -1,0 +1,13 @@
+{
+    "first_name": "Mia",
+    "last_name": "Johnson",
+    "address": "789 pine ave",
+    "city": "London",
+    "email_address": "mia.johnson123@example.ca",
+    "form_year": 2024,
+    "form_type": "Income Tax and Benefit Return",
+    "form_description": "T1 2024",
+    "social_insurance_number": "456-789-123",
+    "net_income": 91000,
+    "total_income": 108000
+}

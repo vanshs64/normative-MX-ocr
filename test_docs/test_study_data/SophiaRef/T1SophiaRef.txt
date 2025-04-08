@@ -1,0 +1,14 @@
+{
+    "first_name": "Sophia",
+    "last_name": "Brown",
+    "address": "321 Pine Avenue",
+    "city": "Calgary",
+    "email_address": "sophiabrown@example.com",
+    "form_year": 2024,
+    "form_type": "T1",
+    "form_description": "Income Tax and Benefit Return",
+    "social_insurance_number": "456123789",
+    "net_income": "91500",
+    "total_income": "105000",
+    "postal_code": "L1M0R4"
+}

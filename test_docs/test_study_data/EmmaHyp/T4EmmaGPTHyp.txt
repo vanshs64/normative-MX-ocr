@@ -1,0 +1,11 @@
+{
+    "first_name": "EMMA",
+    "last_name": "WILSON",
+    "address": "234 Birch Blvd",
+    "form_year": 2025,
+    "form_type": "T4",
+    "form_description": "Statement of Remuneration Paid",
+    "social_insurance_number": "654873219",
+    "employers_name": "RetailPlus Ltd.",
+    "employers_account_number": "RP-6543"
+}

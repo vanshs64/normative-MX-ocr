@@ -1,0 +1,11 @@
+{
+    "first_name": "Lucas",
+    "last_name": "Anderson",
+    "address": "567 pine st",
+    "form_year": 2025,
+    "form_type": "T4",
+    "form_description": "Statement of Remuneration Paid",
+    "social_insurance_number": "987654321",
+    "employers_name": "BuildIt Constructions Inc.",
+    "employers_account_number": "BI-3210"
+}

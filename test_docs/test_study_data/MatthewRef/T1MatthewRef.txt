@@ -1,0 +1,14 @@
+{
+    "first_name": "Matthew",
+    "last_name": "Milan",
+    "address": "789 maplewood drive",
+    "city": "Toronto",
+    "email_address": "matthew.milan@example.com",
+    "form_year": 2024,
+    "form_type": "T1",
+    "form_description": "Income Tax and Benefit Return",
+    "social_insurance_number": "123456789",
+    "net_income": "95000",
+    "total_income": "110000",
+    "postal_code": "C8C34M"
+}
