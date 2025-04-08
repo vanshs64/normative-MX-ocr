@@ -87,7 +87,7 @@ def main():
 
             print(f"Extraction for {name}'s {doc_type} done.")
         
-        append_score_to_csv(name)
+        append_score_to_csv(name,"GPT")
 
         print(f"CER Score Calculation also complete for {name}")
 
