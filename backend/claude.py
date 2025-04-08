@@ -5,6 +5,7 @@ import sys
 from dotenv import load_dotenv
 
 from helpers import pdf_to_images, encode_image, save_text_to_file, cleanup_temp_files
+from calculate_score import append_score_to_csv
 
 # Load API key from .env file
 load_dotenv()
@@ -82,6 +83,53 @@ def main():
     except Exception as e:
         print(f"An error occurred: {e}")
         sys.exit(1)
+
+def main_old():
+
+    # the three for now, add NOA in future
+    doc_types = ["T1", "T4", "FS"]
+
+    names = []
+    with open("../test_docs/names.txt", "r") as list_of_files:
+        names = list_of_files.read().split() # put names into an array (iterable)
+    
+
+    # tqdm to show progress bar
+    for name in names:
+        for doc_type in doc_types:
+            print(f"Starting extraction for {name}'s {doc_type}...")
+            file_name = f"{doc_type}{name}.pdf"
+            pdf_path = f"../test_docs/test_study_data/{name}/{file_name}"
+            
+            key_template = ""
+            with open(f"../test_docs/templates/{doc_type}Template.txt", "r") as f:
+                key_template = f.read()
+
+            image_paths = pdf_to_images(pdf_path, "JPEG")
+
+            extracted_text = openai_extract(image_paths, key_template)
+
+            # indicate which hypothesis it is, in this case it is openai's "GPTHyp"
+            save_text_to_file(extracted_text, f"../test_docs/test_study_data/{name}Hyp", f"{doc_type}{name}GPTHyp.txt")
+
+            print(f"Extraction for {name}'s {doc_type} done.")
+        
+        append_score_to_csv(name)
+
+        print(f"CER Score Calculation also complete for {name}")
+
+
+    # Cleanup temporary files after processing each document
+    temp_images_dir = os.path.abspath(os.path.join(os.getcwd(), "..", "temp_images"))
+    if os.path.exists(temp_images_dir):
+        for file_name in os.listdir(temp_images_dir):
+            file_path = os.path.join(temp_images_dir, file_name)
+            if os.path.isfile(file_path):
+                os.remove(file_path)
+        print("Temporary images deleted.")
+    else:
+        print("Temporary images directory does not exist.")
+
 
 
 if __name__ == "__main__":

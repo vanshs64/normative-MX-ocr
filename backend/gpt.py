@@ -19,28 +19,43 @@ def openai_extract(image_paths, key_template):
     """Send images to OpenAI Vision API for OCR text extraction."""
     client = OpenAI(api_key=OPENAI_SECRET_KEY)
 
-    reference_text = key_template
+    # Load the expected keys from the truth file
+    current_dir = os.path.dirname(os.path.abspath(__file__))
 
-    extracted_text = ""
-    
-    print("Beginning OCR text extraction via API...")
-    for image_path in tqdm(image_paths):
+    # Encode all images
+    image_inputs = []
+    for image_path in image_paths:
         base64_image = encode_image(image_path)
-        response = client.responses.create(
-            model="gpt-4o-mini",
-            input=[
-                {"role": "user", "content": [
-                    {f"type": "input_text", 
-                     "text": "Extract all text from this image. Please expect to find the mapping between key-value pairs given through these extracted data dictionary keys: {reference_text}. Please return a value pair for each of these in a similar dictionary format. If a reference is already found to that "},
-                    {"type": "input_image", 
-                     "image_url": f"data:image/jpeg;base64,{base64_image}", "detail": "high"}
-                ]}
-            ]
-        )
-        extracted_text += response.output_text + "\n\n"
-        time.sleep(1)  # wait for 1 second between requests to avoid quota exceeding
-    
-    return extracted_text
+        image_inputs.append({
+            "type": "input_image",
+            "image_url": f"data:image/jpeg;base64,{base64_image}",
+            "detail": "high"
+        })
+
+    print("Sending all images in one batch to OpenAI Vision API...")
+
+    # Create a single BATCH prompt
+    prompt = [
+        {
+            "type": "input_text",
+            "text": (
+                "You will be given multiple pages of a document as images. "
+                "Extract text and find the best possible values for the following keys: "
+                f"{key_template}. They may not appear on the same page, but do your best "
+                "to find and return a final dictionary containing these key-value pairs. "
+                "Do not include unrelated information or codeblock formatting, only the Dictionary."
+            )
+        }
+    ] + image_inputs
+
+    response = client.responses.create(
+        model="gpt-4o-mini",
+        input=[
+            {"role": "user", "content": prompt}
+        ]
+    )
+
+    return response.output_text
 
 def main():
 
@@ -53,19 +68,17 @@ def main():
     
 
     # tqdm to show progress bar
-    for name in tqdm(names):
-        for doc_type in tqdm(doc_types):
+    for name in names:
+        for doc_type in doc_types:
             print(f"Starting extraction for {name}'s {doc_type}...")
             file_name = f"{doc_type}{name}.pdf"
             pdf_path = f"../test_docs/test_study_data/{name}/{file_name}"
             
-            key_template_path = f"../test_docs/templates/{doc_type}Template.txt"
             key_template = ""
-            with open(key_template_path, "r") as f:
+            with open(f"../test_docs/templates/{doc_type}Template.txt", "r") as f:
                 key_template = f.read()
 
             image_paths = pdf_to_images(pdf_path, "JPEG")
-
 
             extracted_text = openai_extract(image_paths, key_template)
 
@@ -74,7 +87,10 @@ def main():
 
             print(f"Extraction for {name}'s {doc_type} done.")
         
-        print(f"OCR completed for {file_name}. Extracted text saved to {doc_type}{file_name}Hyp.txt")
+        append_score_to_csv(name)
+
+        print(f"CER Score Calculation also complete for {name}")
+
 
     # Cleanup temporary files after processing each document
     temp_images_dir = os.path.abspath(os.path.join(os.getcwd(), "..", "temp_images"))

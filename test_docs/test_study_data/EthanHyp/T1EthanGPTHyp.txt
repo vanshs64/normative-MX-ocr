@@ -1,0 +1,13 @@
+{
+    "first_name": "Ethan",
+    "last_name": "Brown",
+    "address": "456 OAK DR",
+    "city": "Hamilton",
+    "email_address": "ethan.brown@example.org",
+    "form_year": 2024,
+    "form_type": "Income Tax and Benefit Return",
+    "form_description": "T1",
+    "social_insurance_number": "987654321",
+    "net_income": 68000,
+    "total_income": 81000
+}

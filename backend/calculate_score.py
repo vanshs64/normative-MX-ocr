@@ -2,30 +2,22 @@ from cer import levenshtein_distance
 from pathlib import Path
 import json
 import csv
-from tqdm import tqdm
+# Removed unused tqdm import
 
 doc_types = ["T1", "T4", "FS"]
 current_ocr = "GPT"
 
 TEST_PATH = "../test_docs/test_study_data"
+NAMES_PATH = "../test_docs/names.txt"
 
-def append_score_to_csv():
-    return
 
-def main():
-    names = []
-    with open("../test_docs/names.txt", "r") as list_of_files:
-        names = list_of_files.read().split() # put names into an array (iterable)
-
-    # for each person in our study
-    for name in names:
+def append_score_to_csv(name):
+        print(f"Generating CER Scores for {name}")
         name_CER = [name] # all the CER rates for this person's documents in order, T1, T4, FS
 
         # for each document that person has
         for doc_type in doc_types:
-
-            doc_ref_data = []
-            doc_hyp_data = []
+            print(f"Currect Doc: {doc_type}")
 
             hyp_file_name = f"{doc_type}{name}{current_ocr}Hyp.txt"
             ref_file_name = f"{doc_type}{name}Ref.txt"
@@ -36,7 +28,7 @@ def main():
             total_errors = 0
             total_chars = 0
 
-            comparison_table = []
+            # Removed unused comparison_table variable
             with open(hyp_file_path, "r") as hyp_file, open(ref_file_path, "r") as ref_file:
                 hyp_content = hyp_file.read()
                 ref_content = ref_file.read()
@@ -52,12 +44,9 @@ def main():
                     reference_value = str(ref_content_dict.get(key, "'N/A'")).strip()
                     hypothesis_value = str(hyp_content_dict.get(key, "N/A")).strip()
 
-                    doc_ref_data.append(reference_value)
-                    doc_hyp_data.append(hypothesis_value)
-
                     # since N/A is just for display, in actual CER calc we use empty string (0 characters) therefore do this
-                    reference_value = '' if reference_value == 'N/A' else ''
-                    hypothesis_value = '' if hypothesis_value == 'N/A' else ''
+                    reference_value = '' if reference_value == 'N/A' else reference_value
+                    hypothesis_value = '' if hypothesis_value == 'N/A' else hypothesis_value
 
                     # actual calculation
                     distance = levenshtein_distance(hypothesis_value, reference_value)
@@ -65,7 +54,6 @@ def main():
                     total_errors += distance
                     total_chars += len(reference_value)
                 
-                print(f"Currect Doc: {doc_type}")
 
             # Calculate overall CER
             overall_cer = total_errors / total_chars if total_chars > 0 else 0.0
@@ -77,9 +65,7 @@ def main():
             writer.writerow(name_CER)
         
             print(f"Done CER calcs and saved data for person: {name}")
-    print("Done all CER for each person in names.txt")
-
 
 
 if __name__ == "__main__":
-    main()
+    append_score_to_csv()
