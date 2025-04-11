@@ -51,7 +51,7 @@ def claude_extract(image_paths, key_template):
 
     # Send the request to the Claude API
     response = client.messages.create(
-        model="claude-3-Haiku-20240229",  # Adjust the model if needed
+        model="claude-3-opus-20240229",  # Adjust the model if needed
         messages=[
             {"role": "user", "content": messages}
         ],
