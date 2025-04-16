@@ -1,7 +1,7 @@
 import os
-import pymupdf  # PyMuPDF
 from tqdm import tqdm
 from PIL import Image
+import fitz #pymupdf
 import base64
 
 
