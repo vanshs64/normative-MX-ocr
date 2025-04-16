@@ -4,12 +4,12 @@ import json
 import base64
 from pathlib import Path
 
-from flask import Flask, request, jsonify, send_from_directory
-from flask_cors import CORS
-from werkzeug.utils import secure_filename
+from flask import Flask, request, jsonify, send_from_directory # type: ignore
+from flask_cors import CORS # type: ignore
+from werkzeug.utils import secure_filename # type: ignore
 
-import fitz
-from PIL import Image
+import fitz # type: ignore
+from PIL import Image # type: ignore
 
 from vision import pdf_to_images, google_vision_extract, save_text, cleanup_temp_files
 from gpt import openai_extract_responder
@@ -168,7 +168,6 @@ def get_hyp_ref():
 
     except Exception as e:
         return jsonify({'error': f'Error processing files: {str(e)}'}), 500
-
 
 @app.route('/save-file', methods=['POST'])
 def save_file():
