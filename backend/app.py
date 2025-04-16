@@ -3,6 +3,10 @@ from flask_cors import CORS
 from werkzeug.utils import secure_filename
 from vision import pdf_to_images, google_vision_extract, save_text, cleanup_temp_files
 
+from pdf2image import convert_from_bytes
+from PIL import Image
+
+
 from cer import calculate_cer
 
 import json
@@ -31,18 +35,60 @@ def serve_frontend():
 def serve_static(path):
     return send_from_directory(app.static_folder, path)
 
-@app.route('/gpt', methods=['POST'])
-def extract_text():
+
+def image_to_base64(image: Image.Image) -> str:
+    buffered = io.BytesIO()
+    image.save(buffered, format="JPEG")
+    return base64.b64encode(buffered.getvalue()).decode("utf-8")
+
+# gpt route for ocr extraction
+@app.route('/gptocr', methods=['POST'])
+def gptocr():
     try:
+        if 'file' not in request.files:
+            return jsonify({'error': 'No file provided'}), 400
+        
+        file = request.files['file']
+        
+        if file.filename == '':
+            return jsonify({'error': 'No file selected'}), 400
+        
+        if not allowed_file(file.filename):
+            return jsonify({'error': 'File type not allowed. Please upload PDF, PNG, or JPG files only.'}), 400
+        
+        filename = secure_filename(file.filename)
+        filepath = os.path.join(TEST_DOCS_FOLDER, filename)
+        
+        # Save the file
+        file.save(filepath)
+        
+        if not os.path.exists(filepath):
+            return jsonify({'error': f'Failed to save file to {filepath}'}), 500
+
+        # Process the file with vision.py
+        try:
+            image_paths = pdf_to_images(filepath)
+            extracted_text = google_vision_extract(image_paths)
+            output_file = f"{os.path.splitext(filepath)[0]}_extracted.txt"
+            save_text(extracted_text, output_file)
+            cleanup_temp_files(image_paths)
+            
+            return jsonify({
+            'message': 'File processed successfully',
+            'filepath': f'test_docs/{filename}',
+            'output_file': f'test_docs/{os.path.basename(output_file)}',
+            'extracted_text': extracted_text
+            })
+            
+        except Exception as e:
+            return jsonify({'error': f'Error processing file: {str(e)}'}), 500
         data = request.get_json()
         if not data or 'text' not in data:
             return jsonify({'error': 'No text provided'}), 400
         
         text = data['text']
         
-        # Process the text with Google Vision API (or any other processing)
-        # For now, we just return the text back
-        return jsonify({'extracted_text': text})
+        return jsonify({'text': text})
     
     except Exception as e:
         return jsonify({'error': str(e)}), 500
