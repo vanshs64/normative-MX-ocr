@@ -1,0 +1,13 @@
+{
+    "first_name": "Lucas",
+    "last_name": "Anderson",
+    "address": "557 Pine St",
+    "city": "Winnipeg",
+    "email_address": "lucas.anderson@work.com",
+    "form_year": 2024,
+    "form_type": "T1",
+    "form_description": "Income Tax and Benefit Return",
+    "social_insurance_number": "987654321",
+    "net_income": 23600,
+    "total_income": 15000
+}

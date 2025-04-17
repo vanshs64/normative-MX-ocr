@@ -5,9 +5,9 @@
     "city": "edmonton",
     "email_address": "ava.thompson@example.net",
     "form_year": 2024,
-    "form_type": "T1",
-    "form_description": "Income Tax and Benefit Return",
-    "social_insurance_number": "",
-    "net_income": "23400",
-    "total_income": "15000"
+    "form_type": "Income Tax and Benefit Return",
+    "form_description": "T1 2024",
+    "social_insurance_number": "123456789", 
+    "net_income": 23600,
+    "total_income": 15000
 }

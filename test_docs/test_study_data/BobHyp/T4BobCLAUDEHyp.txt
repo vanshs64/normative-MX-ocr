@@ -1,0 +1,11 @@
+{
+    "first_name": "Bob",
+    "last_name": "Wilson",
+    "address": "321 Cedar Blvd",
+    "form_year": 2025,
+    "form_type": "T4",
+    "form_description": "Statement of Remuneration Paid État de la rémunération payée",
+    "social_insurance_number": "321987654",
+    "employers_name": "EduCare Innovations",
+    "employers_account_number": "ED-6543"
+}

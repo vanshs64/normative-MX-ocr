@@ -9,6 +9,6 @@
     "form_type": "",
     "form_description": "",
     "social_insurance_number": "",
-    "net_income": ""
+    "net_income": "",
     "total_income": ""
 }

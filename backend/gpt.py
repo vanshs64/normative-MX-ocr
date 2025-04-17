@@ -4,12 +4,10 @@ from openai import OpenAI
 from dotenv import load_dotenv
 import time
 
-import ast
 
 from helpers import pdf_to_images, encode_image, save_text_to_file
 
 from calculate_score import append_score_to_csv
-import json
 
 # Load API key from .env file
 load_dotenv()
@@ -56,6 +54,35 @@ def openai_extract(image_paths, key_template):
     )
 
     return response.output_text
+
+
+def openai_extract_responder(image_inputs, key_template):
+    """Send pre-formatted images to OpenAI Vision api for extraction"""
+    client = OpenAI(api_key=OPENAI_SECRET_KEY)
+
+    # Create a single BATCH prompt
+    prompt = [
+        {
+            "type": "input_text",
+            "text": (
+                "You will be given multiple pages of a document as images. "
+                "Extract text and find the best possible values for the following keys: "
+                f"{key_template}. They may not appear on the same page, but do your best "
+                "to find and return a final dictionary containing these key-value pairs. "
+                "Do not include unrelated information or codeblock formatting, only the Dictionary."
+            )
+        }
+    ] + image_inputs
+
+    response = client.responses.create(
+        model="gpt-4o-mini",
+        input=[
+            {"role": "user", "content": prompt}
+        ]
+    )
+
+    return response.output_text
+
 
 def main():
 

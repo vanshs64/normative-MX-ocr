@@ -1,0 +1,13 @@
+{
+    "first_name": "Charlotte",
+    "last_name": "Davis",
+    "address": "654 birch ln",
+    "city": "Saskatoon",
+    "email_address": "CHARLOTTE.davis@example.net",
+    "form_year": 2024,
+    "form_type": "Income Tax and Benefit Return",
+    "form_description": "T1",
+    "social_insurance_number": "654123456",
+    "net_income": 23600,
+    "total_income": 15000
+}

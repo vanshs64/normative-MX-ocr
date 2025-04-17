@@ -1,0 +1,13 @@
+{
+    "first_name": "Liam",
+    "last_name": "Johnson",
+    "address": "456 Oak Drive",
+    "city": "Montreal",
+    "email_address": "liamjohnson@example.com",
+    "form_year": 2024,
+    "form_type": "Income Tax and Benefit Return",
+    "form_description": "T1 2024",
+    "social_insurance_number": "987654321",
+    "net_income": 23600,
+    "total_income": 15000
+}

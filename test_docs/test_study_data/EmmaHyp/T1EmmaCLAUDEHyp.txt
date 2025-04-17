@@ -1,0 +1,13 @@
+{
+    "first_name": "Emma",
+    "last_name": "Wilson",
+    "address": "234 birch blvd",
+    "city": "Halifax",
+    "email_address": "emma_wilson@example.ca",
+    "form_year": 2024,
+    "form_type": "Income Tax and Benefit Return",
+    "form_description": "T1",
+    "social_insurance_number": "654873219",
+    "net_income": 72000,
+    "total_income": 85000
+}
