@@ -1,104 +1,124 @@
 // page.js
 'use client';
-import { useState, useRef } from 'react';
-import DocumentUploader from './components/document-uploader';
+import { useState } from 'react';
+
+import './styles.css';
+import axios from 'axios';
+
 
 export default function Home() {
-  const [files, setFiles] = useState([]);
-  const [selectedOcr, setSelectedOcr] = useState('');
-  const [ocrResults, setOcrResults] = useState(null);
-  const [isProcessing, setIsProcessing] = useState(false);
 
-  const ocrOptions = [
-    { value: 'gpt', label: 'Openai ChatGPT 4o' },
-    { value: 'claude', label: 'Claude Sonnet 3.0' },
-    { value: 'vision', label: 'Google Vision OCR' },
-    { value: 'docai', label: 'Google Document AI' },
-  ];
+  const [file, setFile] = useState(null);
+  const [status, setStatus] = useState("idle");
+  const [extractionResult, setExtractionResult] = useState("");
 
-  const handleRunOcr = async () => {
-    if (!selectedOcr) return;
+  // when person selects a file to upload
+  function handleFileChange(e) {
+    if (e.target.files) {
+      setFile(e.target.files[0]);
+    }
+  }
 
-    setIsProcessing(true);
+  async function handleFileUpload() {
+    if (!file) return;
+
+    setStatus("uploading");
+
+    // This is the format of the data we want to send, in a FormData object
+    const formData = new FormData();
+    formData.append('file', file);
+
+    // which flask route to choose for ocr
+    const route = "http://127.0.0.1:3000/gptocr"; // have to be VERY CAREFUL where this is routed to (relative /route won't work)
+
     try {
-      const route = `/${selectedOcr}`;
-      const response = await fetch(route, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ files }),
+      // axios to do http requests (instead of fetch from usual usage)
+      const response = await axios.post(route, formData, {
+        headers: { 'Content-Type': 'multipart/form-data' },
       });
 
-      if (!response.ok) {
-        throw new Error('Failed to process OCR');
-      }
+      // Process the response from the backend
+      const extractedText = response.data.text;
+      console.log('Extracted Text:', extractedText);
 
-      const data = await response.json();
-      setOcrResults({
-        success: true,
-        message: data.message || 'OCR processed successfully!',
-      });
-    } catch (error) {
-      setOcrResults({
-        success: false,
-        message: error.message || 'OCR processing failed',
-      });
-    } finally {
-      setIsProcessing(false);
+      setExtractionResult(extractedText)
+      setStatus("success");
+    } catch {
+      setStatus("error");
     }
   };
 
+
   return (
-    <div className="min-h-screen bg-background text-foreground p-8">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-3xl font-bold mb-8">Mortgage Document Portal</h1>
+    <div className="upload-page">
+      <div className="upload-container">
+        <h1>Document OCR Upload</h1>
+        <p className="reg-text">Please select a PDF or image file to extract text using our OCR engine. Supported formats: PDF, JPG, PNG.</p>
 
-        {/* Upload Section */}
-        <div className="mb-8">
-          <h2 className="text-xl font-semibold mb-4">Upload Documents</h2>
-          <DocumentUploader onFilesUpdate={setFiles} />
+        <div className="file-input-section">
+          <input type="file" onChange={handleFileChange} />
         </div>
 
-        {/* OCR Selection */}
-        <div className="mb-8">
-          <h2 className="text-xl font-semibold mb-4">Process Documents</h2>
-          <div className="flex gap-4 items-center">
-            <select
-              value={selectedOcr}
-              onChange={(e) => setSelectedOcr(e.target.value)}
-              className="bg-input-bg border border-card-border rounded-lg px-4 py-2 flex-1"
-            >
-              <option value="">Select OCR Type</option>
-              {ocrOptions.map(option => (
-                <option key={option.value} value={option.value}>
-                  {option.label}
-                </option>
-              ))}
-            </select>
-            
-            <button
-              onClick={handleRunOcr}
-              disabled={!selectedOcr || files.length === 0 || isProcessing}
-              className="bg-primary text-white px-6 py-2 rounded-lg font-medium disabled:opacity-50"
-            >
-              {isProcessing ? 'Processing...' : 'Run OCR'}
-            </button>
-          </div>
-        </div>
-
-        {/* Results Display */}
-        {ocrResults && (
-          <div>
-            <h2 className="text-xl font-semibold mb-4">Results</h2>
-            <div className={`p-4 rounded-lg ${
-              ocrResults.success ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
-            }`}>
-              {ocrResults.message}
-            </div>
+        {file && (
+          <div className="file-info">
+            <p><strong>File Name:</strong> {file.name}</p>
+            <p><strong>Size:</strong> {(file.size / 1024).toFixed(2)} KB</p>
+            <p><strong>Type:</strong> {file.type}</p>
           </div>
         )}
+
+        <button
+          className="upload-button"
+          onClick={handleFileUpload}
+          disabled={!file || status === 'uploading'}
+        >
+          Upload
+        </button>
+
+        {status === 'uploading' && (
+          <p className="reg-text">Loading...</p>
+        )
+
+        }
+
+        {status === 'success' && (
+          <p className="upload-success">File uploaded successfully!</p>
+        )}
+
+        {status === 'error' && (
+          <p className="upload-error">Upload failed. Please try again.</p>
+        )}
       </div>
+
+        {extractionResult && (() => {
+          try {
+            const jsonResult = JSON.parse(extractionResult);
+            return (
+              <div className="extraction-result">
+                <h2>Extraction Result</h2>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Key</th>
+                      <th>Value</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {Object.entries(jsonResult).map(([key, value]) => (
+                      <tr key={key}>
+                        <td>{key}</td>
+                        <td>{value}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            );
+          } catch (e) {
+            return <p className="error-text">Invalid JSON data in extraction result.</p>;
+          }
+        })()}
+
     </div>
   );
 }

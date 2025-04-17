@@ -1,0 +1,147 @@
+.content-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Add spacing between the two divs */
+    padding: 40px;
+    margin-top: 5rem;
+}
+
+.upload-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #f9fafb;
+    margin-top: 5rem;
+  }
+  
+  .upload-container {
+    background-color: white;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .upload-container h1 {
+    font-size: 1.75rem;
+    margin-bottom: 10px;
+    color: #1f2937;
+  }
+  
+  .upload-container p {
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+  }
+  
+  .file-input-section input[type="file"] {
+    margin-bottom: 20px;
+  }
+  
+  .file-info {
+    font-size: 0.9rem;
+    color: #374151;
+    margin-bottom: 15px;
+  }
+  
+  .upload-button {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95rem;
+  }
+  
+  .upload-button:hover {
+    background-color: #1e40af;
+  }
+  
+  .upload-success {
+    color: #16a34a;
+    font-weight: 500;
+    margin-top: 15px;
+  }
+  
+  .upload-error {
+    color: #dc2626;
+    font-weight: 500;
+    margin-top: 15px;
+  }
+  
+  .reg-text {    
+    color: #4b5563;
+  }
+
+input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    color: #2563eb;
+    box-sizing: border-box;
+}
+
+input[type="file"]:focus {
+    outline: none;
+    color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3);
+}
+
+
+/* for the result div */
+
+.extraction-result {
+    margin-top: 30px;
+    background-color: #f3f4f6;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+  }
+  
+  .extraction-result h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #111827;
+  }
+  
+  .extraction-result table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    color: #374151;
+  }
+  
+  .extraction-result th,
+  .extraction-result td {
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  
+  .extraction-result th {
+    background-color: #e0e7ff;
+    color: #1e3a8a;
+    font-weight: 600;
+  }
+  
+  .extraction-result tr:hover {
+    background-color: #f9fafb;
+  }
+  
+  .error-text {
+    color: #dc2626;
+    font-weight: 500;
+    margin-top: 20px;
+    background-color: #fee2e2;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #fca5a5;
+  }
+  
