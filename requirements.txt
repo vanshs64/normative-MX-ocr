@@ -7,7 +7,6 @@ pathlib
 
 # PDF processing
 pdf2image
-fitz  # PyMuPDF
 pymupdf
 
 # Google Cloud

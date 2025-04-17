@@ -29,14 +29,18 @@ export default function Home() {
     formData.append('file', file);
 
     // which flask route to choose for ocr
-    const route = "https://localhost:3000/gptocr"
+    const route = "http://127.0.0.1:3000/gptocr"; // have to be VERY CAREFUL where this is routed to (relative /route won't work)
 
     try {
       // axios to do http requests (instead of fetch from usual usage)
-      await axios.post(route, formData, {
+      const response = await axios.post(route, formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
-      
+
+      // Process the response from the backend
+      const extractedText = response.data.text;
+      console.log('Extracted Text:', extractedText);
+
 
       setStatus("success");
     } catch {

@@ -1,12 +1,18 @@
-from flask import Flask, request, jsonify, send_from_directory
-from flask_cors import CORS
-from werkzeug.utils import secure_filename
-from vision import pdf_to_images, google_vision_extract, save_text, cleanup_temp_files
+import os
+import io
+import json
+import base64
+from pathlib import Path
 
-from pdf2image import convert_from_bytes
+from flask import Flask, request, jsonify, send_from_directory 
+from flask_cors import CORS 
+from werkzeug.utils import secure_filename 
+
+import pymupdf
 from PIL import Image
 
-
+from vision import pdf_to_images, google_vision_extract, save_text, cleanup_temp_files
+from gpt import openai_extract_responder
 from cer import calculate_cer
 
 import json
@@ -30,62 +36,74 @@ def allowed_file(filename):
 os.makedirs(TEST_DOCS_FOLDER, exist_ok=True)
 
 
-def image_to_base64(image: Image.Image) -> str:
-    buffered = io.BytesIO()
-    image.save(buffered, format="JPEG")
-    return base64.b64encode(buffered.getvalue()).decode("utf-8")
+def pdf_to_base64_images(pdf_bytes):
+    base64_images = []
+
+    doc = pymupdf.open(stream=pdf_bytes, filetype="pdf")
+    for page in doc:
+        pix = page.get_pixmap(dpi=300)
+        img = Image.frombytes("RGB", [pix.width, pix.height], pix.samples)
+
+        buffer = io.BytesIO()
+        img.save(buffer, format="JPEG")
+        encoded = base64.b64encode(buffer.getvalue()).decode("utf-8")
+
+        base64_images.append({
+            "type": "input_image",
+            "image_url": f"data:image/jpeg;base64,{encoded}",
+            "detail": "high"
+        })
+
+    return base64_images
+
 
 # gpt route for ocr extraction
 @app.route('/gptocr', methods=['POST'])
 def gptocr():
-    try:
-        if 'file' not in request.files:
-            return jsonify({'error': 'No file provided'}), 400
+    if 'file' not in request.files:
+        return jsonify({'error': 'No file provided'}), 400
         
-        file = request.files['file']
-        
-        if file.filename == '':
-            return jsonify({'error': 'No file selected'}), 400
-        
-        if not allowed_file(file.filename):
-            return jsonify({'error': 'File type not allowed. Please upload PDF, PNG, or JPG files only.'}), 400
-        
-        filename = secure_filename(file.filename)
-        filepath = os.path.join(TEST_DOCS_FOLDER, filename)
-        
-        # Save the file
-        file.save(filepath)
-        
-        if not os.path.exists(filepath):
-            return jsonify({'error': f'Failed to save file to {filepath}'}), 500
-
-        # Process the file with vision.py
-        try:
-            image_paths = pdf_to_images(filepath)
-            extracted_text = google_vision_extract(image_paths)
-            output_file = f"{os.path.splitext(filepath)[0]}_extracted.txt"
-            save_text(extracted_text, output_file)
-            cleanup_temp_files(image_paths)
-            
-            return jsonify({
-            'message': 'File processed successfully',
-            'filepath': f'test_docs/{filename}',
-            'output_file': f'test_docs/{os.path.basename(output_file)}',
-            'extracted_text': extracted_text
-            })
-            
-        except Exception as e:
-            return jsonify({'error': f'Error processing file: {str(e)}'}), 500
-        data = request.get_json()
-        if not data or 'text' not in data:
-            return jsonify({'error': 'No text provided'}), 400
-        
-        text = data['text']
-        
-        return jsonify({'text': text})
+    file = request.files['file']
     
-    except Exception as e:
-        return jsonify({'error': str(e)}), 500
+    if file.filename == '':
+        return jsonify({'error': 'No file selected'}), 400
+    
+    if not allowed_file(file.filename):
+        return jsonify({'error': 'File type not allowed. Please upload PDF, PNG, or JPG files only.'}), 400
+    
+    filename = secure_filename(file.filename)
+
+    # Read the PDF into bytes
+
+    pdf_bytes = file.read()
+
+    # Convert to images (JPEG format)
+    input_images = pdf_to_base64_images(pdf_bytes=pdf_bytes)
+
+    # Determine the document type based on the filename
+    if "t1" in filename.lower():
+        doc_type = "T1"
+    elif "t4" in filename.lower():
+        doc_type = "T4"
+    elif "fs" in filename.lower():
+        doc_type = "FS"
+    else:
+        return jsonify({'error': 'Unknown document type in filename'}), 400
+    
+    key_template = ""
+    with open(f"../test_docs/templates/{doc_type}Template.txt", "r") as f:
+        key_template = f.read()
+
+    print(f"Applying extraction template for {doc_type}")
+
+    extracted_text = openai_extract_responder(input_images, key_template)
+
+    return jsonify(
+        {
+            'text': extracted_text
+        }
+    )
+
 
 
 @app.route('/get_scanned_files', methods=['GET'])
@@ -147,7 +165,6 @@ def get_hyp_ref():
 
     except Exception as e:
         return jsonify({'error': f'Error processing files: {str(e)}'}), 500
-
 
 @app.route('/save-file', methods=['POST'])
 def save_file():
