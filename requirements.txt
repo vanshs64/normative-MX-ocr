@@ -1,40 +1,35 @@
-pdf2image
+# Core libraries
 pillow
-google-cloud-vision
-google
-jsonschema
-
-
-
-# for openai
-fitz # PyMuPDF
-pymupdf
 requests
-openai
-dotenv
 tqdm
-
-
-# anthropic
-anthropic
-IPython
-dotenv
-
-
-# google
 typing
-google
-google.cloud
-google-cloud-documentai
+pathlib
 
+# PDF processing
+pdf2image
+fitz  # PyMuPDF
+pymupdf
+
+# Google Cloud
+google
 google-auth
 google-auth-oauthlib
+google-cloud-vision
+google-cloud-documentai
+google.cloud
 
-# cer-wer
+# OpenAI
+openai
+dotenv
+
+# Anthropic
+anthropic
+IPython
+
+# CER/WER
 pybind11
 
+# Flask
 flask
 flask-cors
 werkzeug
-pathlib
-pdf2image

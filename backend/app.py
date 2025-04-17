@@ -12,6 +12,8 @@ from cer import calculate_cer
 import json
 import os
 from pathlib import Path
+import io
+import base64
 HYPOTHESIS_PATH = "../test_docs/hypotheses"
 REFERENCE_PATH = "../test_docs/reference"
 
@@ -26,14 +28,6 @@ def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 os.makedirs(TEST_DOCS_FOLDER, exist_ok=True)
-
-@app.route('/')
-def serve_frontend():
-    return send_from_directory(app.static_folder, 'index.html')
-
-@app.route('/<path:path>')
-def serve_static(path):
-    return send_from_directory(app.static_folder, path)
 
 
 def image_to_base64(image: Image.Image) -> str:

@@ -29,7 +29,7 @@ export default function Home() {
     formData.append('file', file);
 
     // which flask route to choose for ocr
-    const route = "/gptocr"
+    const route = "https://localhost:3000/gptocr"
 
     try {
       // axios to do http requests (instead of fetch from usual usage)

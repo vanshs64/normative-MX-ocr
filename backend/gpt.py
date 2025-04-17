@@ -4,12 +4,10 @@ from openai import OpenAI
 from dotenv import load_dotenv
 import time
 
-import ast
 
 from helpers import pdf_to_images, encode_image, save_text_to_file
 
 from calculate_score import append_score_to_csv
-import json
 
 # Load API key from .env file
 load_dotenv()
